@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { getAllTopics } from "../../api/apiRequest";
-import { Link, Router } from "@reach/router";
+import { Router } from "@reach/router";
 import TopicList from "./TopicList";
+import TopicPage from "./TopicPage";
 
 export default class Topic extends Component {
   state = {
@@ -26,17 +27,12 @@ export default class Topic extends Component {
         <main>
           <ul style={{ listStyleType: "none" }}>
             {topics.map(topic => {
-              return (
-                <li key={topic.slug}>
-                  <Link to={topic.slug}>{topic.slug}</Link>
-                </li>
-              );
+              return <TopicList key={topic.slug} topic={topic} />;
             })}
           </ul>
         </main>
         <Router>
-          <TopicList path="/" topics={topics} />
-          <Topic path={":topic"} />
+          <TopicPage path={":topic"} topics={topics} />
         </Router>
       </React.Fragment>
     );
