@@ -4,7 +4,8 @@ import { getAllArticles } from "../api/apiRequest";
 
 export default class Homepage extends Component {
   state = {
-    allArticles: []
+    allArticles: [],
+    isLoading: true
   };
 
   componentDidMount() {
@@ -12,18 +13,25 @@ export default class Homepage extends Component {
   }
 
   fetchAllArticles = () => {
-    getAllArticles().then(allArticles => this.setState({ allArticles }));
+    getAllArticles().then(allArticles =>
+      this.setState({ allArticles, isLoading: false })
+    );
   };
 
   render() {
-    const { allArticles } = this.state;
+    const { allArticles, isLoading } = this.state;
     return (
       <main>
-        <ul>
-          {allArticles.map(article => {
-            return <ArticleCard key={article.article_id} article={article} />;
-          })}
-        </ul>
+        <h1>Articles</h1>
+        {isLoading ? (
+          <p>..Loading</p>
+        ) : (
+          <ul>
+            {allArticles.map(article => {
+              return <ArticleCard key={article.article_id} article={article} />;
+            })}
+          </ul>
+        )}
       </main>
     );
   }
