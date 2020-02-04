@@ -1,5 +1,5 @@
 import React from "react";
-// MOMENT.JS for the
+// MOMENT.JS for the date
 export default function ArticleCard(props) {
   const { article } = props;
 

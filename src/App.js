@@ -4,7 +4,8 @@ import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
 import Homepage from "./components/Homepage";
-import Topic from "./components/Topics/Topics";
+import Topics from "./components/Topics/Topics";
+import TopicPage from "./components/Topics/TopicPage";
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
       </header>
       <Router>
         <Homepage path="/" />
-        <Topic path="/topics/*" />
+        <Topics path="/topics" />
+        <TopicPage path="/topics/:topic" />
       </Router>
     </React.Fragment>
   );

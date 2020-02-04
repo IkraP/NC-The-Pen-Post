@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { getAllTopics } from "../../api/apiRequest";
-import { Router } from "@reach/router";
 import TopicList from "./TopicList";
-import TopicPage from "./TopicPage";
 
-export default class Topic extends Component {
+export default class Topics extends Component {
   state = {
     topics: []
   };
@@ -31,9 +29,6 @@ export default class Topic extends Component {
             })}
           </ul>
         </main>
-        <Router>
-          <TopicPage path={":topic"} topics={topics} />
-        </Router>
       </React.Fragment>
     );
   }
