@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const getAllArticles = topic => {
+const getAllArticles = (topic, article_id) => {
   return axios
     .get("https://ikra-news-api.herokuapp.com/api/articles", {
       params: {
-        topic
+        topic,
+        article_id
       }
     })
     .then(({ data: { articles } }) => {

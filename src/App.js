@@ -6,6 +6,7 @@ import { Router } from "@reach/router";
 import Homepage from "./components/Homepage";
 import Topics from "./components/Topics/Topics";
 import TopicPage from "./components/Topics/TopicPage";
+import ArticlePage from "./components/Articles/ArticlePage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       </header>
       <Router>
         <Homepage path="/" />
+        <ArticlePage path="/:article_id" />
         <Topics path="/topics" />
         <TopicPage path="/topics/:topic" />
       </Router>
