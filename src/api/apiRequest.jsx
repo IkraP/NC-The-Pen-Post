@@ -27,4 +27,19 @@ const getAllTopics = () => {
     });
 };
 
-export { getAllArticles, getAllTopics, getArticleByArticleId };
+const getCommentsByArticleId = article_id => {
+  return axios
+    .get(
+      `https://ikra-news-api.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
+export {
+  getAllArticles,
+  getAllTopics,
+  getArticleByArticleId,
+  getCommentsByArticleId
+};

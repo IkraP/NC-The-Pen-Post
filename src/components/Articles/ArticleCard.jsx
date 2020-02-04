@@ -6,7 +6,6 @@ export default function ArticleCard(props) {
   return (
     <article>
       <h2>{article.title}</h2>
-
       <p>Topic:{article.topic} </p>
       <p>Author:{article.author}</p>
       <p>votes: {article.votes}</p>
