@@ -32,8 +32,8 @@ export default class Homepage extends Component {
             {allArticles.map(article => {
               return (
                 <Link
-                  style={{ textDecoration: "none", color: "inherit" }}
                   to={`${article.article_id}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <ArticleCard key={article.article_id} article={article} />
                 </Link>

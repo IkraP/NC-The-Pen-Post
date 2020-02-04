@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import CommentCard from "./CommentCard";
+import NewComment from "./NewComment";
 
 export default class CommentPage extends Component {
   state = {
@@ -20,10 +21,11 @@ export default class CommentPage extends Component {
 
   render() {
     const { articleIdComments } = this.state;
-    console.log(articleIdComments);
+
     return (
       <React.Fragment>
         <section>
+          <NewComment />
           <ul>
             {articleIdComments.map(comment => {
               return <CommentCard key={comment.comment_id} comment={comment} />;

@@ -31,7 +31,7 @@ export default class TopicPage extends Component {
                 style={{ textDecoration: "none", color: "inherit" }}
                 to={`${article.article_id}`}
               >
-                <ArticleCard key={article.article_id} article={article} />
+                <ArticleCard article={article} key={article.article_id} />
               </Link>
             );
           })}
