@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleCard from "./Articles/ArticleCard";
-import { getAllArticles } from "../api/apiRequest";
+import * as api from "../api/apiRequest";
 import { Link } from "@reach/router";
 
 export default class Homepage extends Component {
@@ -14,9 +14,9 @@ export default class Homepage extends Component {
   }
 
   fetchAllArticles = () => {
-    getAllArticles().then(allArticles =>
-      this.setState({ allArticles, isLoading: false })
-    );
+    api
+      .getAllArticles()
+      .then(allArticles => this.setState({ allArticles, isLoading: false }));
   };
 
   render() {
@@ -31,7 +31,10 @@ export default class Homepage extends Component {
           <ul>
             {allArticles.map(article => {
               return (
-                <Link to={`${article.article_id}`} articles={allArticles}>
+                <Link
+                  style={{ textDecoration: "none", color: "inherit" }}
+                  to={`${article.article_id}`}
+                >
                   <ArticleCard key={article.article_id} article={article} />
                 </Link>
               );

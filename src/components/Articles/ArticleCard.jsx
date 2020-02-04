@@ -6,13 +6,11 @@ export default function ArticleCard(props) {
   return (
     <article>
       <h2>{article.title}</h2>
-      <p>
-        Topic:{article.topic}
-        Author:{article.author}
-        votes:{article.votes}
-        {""}
-        Date: {article.created_at}
-      </p>
+
+      <p>Topic:{article.topic} </p>
+      <p>Author:{article.author}</p>
+      <p>votes: {article.votes}</p>
+      <p>Date: {article.created_at}</p>
     </article>
   );
 }

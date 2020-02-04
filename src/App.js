@@ -18,6 +18,7 @@ export default function App() {
       <Router>
         <Homepage path="/" />
         <ArticlePage path="/:article_id" />
+        <ArticlePage path="topics/:topic/:article_id" />
         <Topics path="/topics" />
         <TopicPage path="/topics/:topic" />
       </Router>

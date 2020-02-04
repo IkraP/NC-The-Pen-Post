@@ -1,11 +1,10 @@
 import axios from "axios";
 
-const getAllArticles = (topic, article_id) => {
+const getAllArticles = topic => {
   return axios
     .get("https://ikra-news-api.herokuapp.com/api/articles", {
       params: {
-        topic,
-        article_id
+        topic
       }
     })
     .then(({ data: { articles } }) => {
@@ -13,6 +12,13 @@ const getAllArticles = (topic, article_id) => {
     });
 };
 
+const getArticleByArticleId = article_id => {
+  return axios
+    .get(`https://ikra-news-api.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data: { article } }) => {
+      return article;
+    });
+};
 const getAllTopics = () => {
   return axios
     .get("https://ikra-news-api.herokuapp.com/api/topics")
@@ -21,4 +27,4 @@ const getAllTopics = () => {
     });
 };
 
-export { getAllArticles, getAllTopics };
+export { getAllArticles, getAllTopics, getArticleByArticleId };
