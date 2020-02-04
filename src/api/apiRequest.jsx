@@ -1,8 +1,12 @@
 import axios from "axios";
 
+const request = axios.create({
+  baseURL: "https://ikra-news-api.herokuapp.com/api"
+});
+
 const getAllArticles = topic => {
-  return axios
-    .get("https://ikra-news-api.herokuapp.com/api/articles", {
+  return request
+    .get("/articles", {
       params: {
         topic
       }
@@ -13,8 +17,8 @@ const getAllArticles = topic => {
 };
 
 const getArticleByArticleId = article_id => {
-  return axios
-    .get(`https://ikra-news-api.herokuapp.com/api/articles/${article_id}`)
+  return request
+    .get(`/articles/${article_id}`)
     .then(({ data: { article } }) => {
       return article;
     });
@@ -28,12 +32,21 @@ const getAllTopics = () => {
 };
 
 const getCommentsByArticleId = article_id => {
-  return axios
-    .get(
-      `https://ikra-news-api.herokuapp.com/api/articles/${article_id}/comments`
-    )
+  return request
+    .get(`/articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
       return comments;
+    });
+};
+
+const postCommentsByArticleId = (article_id, comment) => {
+  return request
+    .post(`/articles/${article_id}/comments`, {
+      username: "jessjelly",
+      body: comment
+    })
+    .then(({ data: { comment } }) => {
+      return comment;
     });
 };
 
@@ -41,5 +54,6 @@ export {
   getAllArticles,
   getAllTopics,
   getArticleByArticleId,
-  getCommentsByArticleId
+  getCommentsByArticleId,
+  postCommentsByArticleId
 };

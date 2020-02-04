@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ArticleCard from "./Articles/ArticleCard";
 import * as api from "../api/apiRequest";
-import { Link } from "@reach/router";
 
 export default class Homepage extends Component {
   state = {
@@ -30,14 +29,7 @@ export default class Homepage extends Component {
         ) : (
           <ul>
             {allArticles.map(article => {
-              return (
-                <Link
-                  to={`${article.article_id}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <ArticleCard key={article.article_id} article={article} />
-                </Link>
-              );
+              return <ArticleCard key={article.article_id} article={article} />;
             })}
           </ul>
         )}

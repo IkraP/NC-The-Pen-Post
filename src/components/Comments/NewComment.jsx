@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import * as api from "../../api/apiRequest";
 
 export default class NewComment extends Component {
   state = {
-    username: "",
     comment: ""
   };
   handleChange = (text, key) => {
@@ -11,31 +11,25 @@ export default class NewComment extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.dir(event);
+    const { comment } = this.state;
+    const { article_id } = this.props;
+    api.postCommentsByArticleId(article_id, comment).then(newComment => {
+      this.setState({ comment: "" });
+      this.props.postNewComment(newComment);
+    });
   };
+
   render() {
-    const { username, comment } = this.state;
+    const { comment } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input
-            required
-            type="text"
-            name="username"
-            value={username}
-            onChange={event =>
-              this.handleChange(event.target.value, "username")
-            }
-          />
-        </label>
         <label>
           Comment:
           <textarea
             required
-            wrap
             name="comment"
             value={comment}
+            placeholder="Enter your comment ..."
             onChange={event => this.handleChange(event.target.value, "comment")}
           />
         </label>

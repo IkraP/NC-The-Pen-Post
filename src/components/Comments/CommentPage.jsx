@@ -19,13 +19,32 @@ export default class CommentPage extends Component {
       .then(articleIdComments => this.setState({ articleIdComments }));
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.state.articleIdComments.length !== prevState.articleIdComments.length
+    ) {
+      return this.fetchArticleIdComments();
+    }
+  }
+
+  postNewComment = postedComment => {
+    this.setState(currentState => {
+      return {
+        articleIdComments: [postedComment, ...currentState.articleIdComments]
+      };
+    });
+  };
+
   render() {
     const { articleIdComments } = this.state;
-
+    const { article_id } = this.props;
     return (
       <React.Fragment>
         <section>
-          <NewComment />
+          <NewComment
+            article_id={article_id}
+            postNewComment={this.postNewComment}
+          />
           <ul>
             {articleIdComments.map(comment => {
               return <CommentCard key={comment.comment_id} comment={comment} />;

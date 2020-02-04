@@ -13,7 +13,13 @@ export default function ArticleCard(props) {
         display: "inline-block"
       }}
     >
-      <h2>{article.title}</h2> <p>Topic:{article.topic} </p>
+      <Link
+        to={`${article.article_id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h2>{article.title}</h2>
+      </Link>
+      <p>Topic:{article.topic} </p>
       <p>Author:{article.author}</p>
       <p>votes: {article.votes}</p>
       <p>Date: {article.created_at}</p>

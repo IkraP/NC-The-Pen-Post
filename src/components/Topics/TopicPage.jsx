@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import ArticleCard from "../Articles/ArticleCard";
-import { Link } from "@reach/router";
+
 export default class TopicPage extends Component {
   state = {
     topicArticles: []
@@ -26,14 +26,7 @@ export default class TopicPage extends Component {
         <h3>{topic}</h3>
         <ul>
           {topicArticles.map(article => {
-            return (
-              <Link
-                style={{ textDecoration: "none", color: "inherit" }}
-                to={`${article.article_id}`}
-              >
-                <ArticleCard article={article} key={article.article_id} />
-              </Link>
-            );
+            return <ArticleCard article={article} key={article.article_id} />;
           })}
         </ul>
       </React.Fragment>
