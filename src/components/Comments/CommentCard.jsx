@@ -1,4 +1,5 @@
 import React from "react";
+import TimeAgo from "react-timeago";
 
 export default function CommentCard(props) {
   const { comment } = props;
@@ -13,7 +14,9 @@ export default function CommentCard(props) {
     >
       <p>{comment.body}</p>
       <p>{comment.author}</p>
-      <p>{comment.created_at}</p>
+      <p>
+        <TimeAgo date={comment.created_at} live={false} />
+      </p>
     </section>
   );
 }
