@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ArticleCard from "./Articles/ArticleCard";
 import * as api from "../api/apiRequest";
+import Sorting from "./Sorting";
 
 export default class Homepage extends Component {
   state = {
@@ -18,12 +19,18 @@ export default class Homepage extends Component {
       .then(allArticles => this.setState({ allArticles, isLoading: false }));
   };
 
+  updateArticles = sortedArticles => {
+    this.setState({
+      allArticles: sortedArticles
+    });
+  };
+
   render() {
     const { allArticles, isLoading } = this.state;
-
     return (
       <main>
         <h1>Articles</h1>
+        <Sorting updateArticles={this.updateArticles} />
         {isLoading ? (
           <p>..Loading</p>
         ) : (
