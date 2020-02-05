@@ -6,12 +6,13 @@ import { Router } from "@reach/router";
 import Articles from "./components/Articles/Articles";
 import Topics from "./components/Topics/Topics";
 import TopicPage from "./components/Topics/TopicPage";
-import ArticlePage from "./components/Articles/ArticlePage";
+
 import LoginUser from "./components/LoginUser";
+import EachArticlePage from "./components/Articles/EachArticlePage";
 
 export default class App extends React.Component {
   state = {
-    getLoggedInUser: ""
+    getLoggedInUser: null
   };
 
   getLoggedInUser = selectedUser => {
@@ -19,18 +20,18 @@ export default class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.getLoggedInUser);
+    const { getLoggedInUser } = this.state;
     return (
       <React.Fragment>
         <header>
-          <Header />
-          <NavBar />
+          <Header loggedUser={getLoggedInUser} />
+          <NavBar loggedUser={getLoggedInUser} />
         </header>
         <Router>
           <LoginUser path="/users" getLoggedInUser={this.getLoggedInUser} />
-          <Articles path="/articles" />
-          <ArticlePage path="/:article_id" />
-          <ArticlePage path="topics/:topic/:article_id" />
+          <Articles path="/articles" loggedUser={getLoggedInUser} />
+          <EachArticlePage path="/:article_id" />
+          <EachArticlePage path="topics/:topic/:article_id" />
           <Topics path="/topics" />
           <TopicPage path="/topics/:topic" />
         </Router>

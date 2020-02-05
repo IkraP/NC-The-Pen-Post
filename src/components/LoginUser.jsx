@@ -30,9 +30,13 @@ export default class LoginUser extends Component {
   handleClick = event => {
     const { value } = event.target;
     this.setState({ selectedUser: value });
-    const { selectedUser } = this.state;
-    this.props.getLoggedInUser(selectedUser);
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.selectedUser !== prevState.selectedUser) {
+      this.props.getLoggedInUser(this.state.selectedUser);
+    }
+  }
 
   render() {
     const { usersData } = this.state;

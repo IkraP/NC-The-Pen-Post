@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import CommentPage from "../Comments/CommentPage";
 
-export default class ArticlePage extends Component {
+export default class EachArticlePage extends Component {
   state = {
     article: {}
   };
