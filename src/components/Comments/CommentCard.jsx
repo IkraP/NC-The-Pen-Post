@@ -1,10 +1,10 @@
 import React from "react";
 import TimeAgo from "react-timeago";
 import Voting from "../Voting";
-import { IoIosTrash } from "react-icons/io";
 
 export default function CommentCard(props) {
   const { comment } = props;
+
   return (
     <section
       style={{
@@ -20,9 +20,6 @@ export default function CommentCard(props) {
       <p>
         <TimeAgo date={comment.created_at} live={false} />
       </p>
-      <button>
-        <IoIosTrash />
-      </button>
     </section>
   );
 }

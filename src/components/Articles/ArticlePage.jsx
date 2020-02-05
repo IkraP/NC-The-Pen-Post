@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import CommentPage from "../Comments/CommentPage";
 
-export default class EachArticlePage extends Component {
+export default class ArticlePage extends Component {
   state = {
     article: {}
   };
@@ -17,9 +17,11 @@ export default class EachArticlePage extends Component {
       .getArticleByArticleId(article_id)
       .then(article => this.setState({ article }));
   };
+
   render() {
     const { article } = this.state;
     const { article_id } = this.props;
+
     return (
       <div>
         <h3>Title: {article.title}</h3>

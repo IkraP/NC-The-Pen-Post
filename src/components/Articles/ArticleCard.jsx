@@ -24,6 +24,7 @@ export default function ArticleCard(props) {
       <p>Author:{article.author}</p>
       <Voting votes={article.votes} article_id={article.article_id} />
       <p>Date: {article.created_at}</p>
+      <p>Comments: {article.comment_count}</p>
     </article>
   );
 }

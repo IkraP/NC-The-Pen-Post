@@ -7,7 +7,8 @@ export default class Sorting extends Component {
     order: ""
   };
 
-  handleOrder = event => {
+  //handling order by asc or desc function
+  handleOrderSort = event => {
     const { value } = event.target;
     api.getAllArticles(null, value).then(sortedArticles => {
       this.setState({ order: "" });
@@ -15,24 +16,35 @@ export default class Sorting extends Component {
     });
   };
 
+  //handling sort_by by date, comment, votes function
+
+  handleSortBy = event => {
+    const { value } = event.target;
+    api.getAllArticles(null, null, value).then(sortedArticles => {
+      this.setState({ sort_by: "" });
+      this.props.updateArticles(sortedArticles);
+    });
+  };
+
   render() {
-    console.log(this.state.order);
     return (
       <React.Fragment>
         <form>
-          <label>Sort articles by:</label>
-          <select onChange={this.handleOrder}>
-            <option value="asc">asc</option>
+          <label>Sort articles by: </label>
+          <select onChange={this.handleOrderSort}>
             <option value="desc">desc</option>
+            <option value="asc">asc</option>
+
           </select>
         </form>
-
-        {/* <button id="asc" onClick={this.handleOrder}>
-          ASC
-        </button>
-        <button id="desc" onClick={this.handleOrder}>
-          DESC
-        </button> */}
+        <form>
+          <label>Sort articles by: </label>
+          <select onChange={this.handleSortBy}>
+            <option value="date">date</option>
+            <option value="comment_count">number of comments</option>
+            <option value="votes">votes</option>
+          </select>
+        </form>
       </React.Fragment>
     );
   }

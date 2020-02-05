@@ -10,9 +10,7 @@ export default function NavBar() {
       <button>
         <Link to="/users"> Users </Link>
       </button>
-      <button>
-        <Link to="/articles"> Articles </Link>
-      </button>
+
       <button>
         <Link to="/topics"> Topics </Link>
       </button>
