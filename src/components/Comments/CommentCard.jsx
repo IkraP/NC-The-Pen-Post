@@ -1,5 +1,6 @@
 import React from "react";
 import TimeAgo from "react-timeago";
+import Voting from "../Voting";
 
 export default function CommentCard(props) {
   const { comment } = props;
@@ -14,6 +15,7 @@ export default function CommentCard(props) {
     >
       <p>{comment.body}</p>
       <p>{comment.author}</p>
+      <Voting votes={comment.votes} comment_id={comment.comment_id} />
       <p>
         <TimeAgo date={comment.created_at} live={false} />
       </p>

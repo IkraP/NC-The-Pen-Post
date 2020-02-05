@@ -50,10 +50,21 @@ const postCommentsByArticleId = (article_id, comment) => {
     });
 };
 
+const patchVotesByArticleId = (article_id, inc_votes) => {
+  console.log(article_id, inc_votes);
+  return request.patch(`/articles/${article_id}`, { inc_votes });
+};
+
+const patchVotesByCommentId = (comment_id, inc_votes) => {
+  return request.patch(`/comments/${comment_id}`, { inc_votes });
+};
+
 export {
   getAllArticles,
   getAllTopics,
   getArticleByArticleId,
   getCommentsByArticleId,
-  postCommentsByArticleId
+  postCommentsByArticleId,
+  patchVotesByArticleId,
+  patchVotesByCommentId
 };

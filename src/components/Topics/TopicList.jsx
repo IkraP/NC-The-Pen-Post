@@ -7,7 +7,7 @@ export default function TopicList(props) {
   return (
     <div>
       <Link to={`${topic.slug}`}>
-        <li>{topic.slug}</li>
+        <option>{topic.slug}</option>
       </Link>
     </div>
   );
