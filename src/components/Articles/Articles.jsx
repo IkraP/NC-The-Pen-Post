@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ArticleCard from "./Articles/ArticleCard";
-import * as api from "../api/apiRequest";
-import Sorting from "./Sorting";
+import ArticleCard from "./ArticleCard";
+import * as api from "../../api/apiRequest";
+import Sorting from "../Sorting";
 
 export default class Homepage extends Component {
   state = {

@@ -5,7 +5,6 @@ const request = axios.create({
 });
 
 const getAllArticles = (topic, order) => {
-  console.log(order);
   return request
     .get("/articles", {
       params: {
@@ -61,6 +60,12 @@ const patchVotesByCommentId = (comment_id, inc_votes) => {
   return request.patch(`/comments/${comment_id}`, { inc_votes });
 };
 
+const getUsers = selectedUser => {
+  return request.get(`/users/${selectedUser}`).then(({ data: { user } }) => {
+    return user;
+  });
+};
+
 export {
   getAllArticles,
   getAllTopics,
@@ -68,5 +73,6 @@ export {
   getCommentsByArticleId,
   postCommentsByArticleId,
   patchVotesByArticleId,
-  patchVotesByCommentId
+  patchVotesByCommentId,
+  getUsers
 };

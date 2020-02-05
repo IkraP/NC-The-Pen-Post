@@ -8,6 +8,12 @@ export default function NavBar() {
         <Link to="/"> Home </Link>
       </button>
       <button>
+        <Link to="/users"> Users </Link>
+      </button>
+      <button>
+        <Link to="/articles"> Articles </Link>
+      </button>
+      <button>
         <Link to="/topics"> Topics </Link>
       </button>
     </nav>
