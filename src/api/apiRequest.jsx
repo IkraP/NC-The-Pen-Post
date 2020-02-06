@@ -66,6 +66,10 @@ const getUsers = selectedUser => {
   });
 };
 
+const deleteCommentsByCommentId = comment_id => {
+  return request.delete(`/comments/${comment_id}`);
+};
+
 export {
   getAllArticles,
   getAllTopics,
@@ -74,5 +78,6 @@ export {
   postCommentsByArticleId,
   patchVotesByArticleId,
   patchVotesByCommentId,
-  getUsers
+  getUsers,
+  deleteCommentsByCommentId
 };

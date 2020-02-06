@@ -5,7 +5,9 @@ import Voting from "../Voting";
 
 export default class CommentCard extends Component {
   handleDelete = event => {
-    console.dir(event.target.id);
+    const { id } = event.target;
+    console.log(id);
+    this.props.deleteComment(id);
   };
 
   render() {

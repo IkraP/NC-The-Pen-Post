@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import ArticleCard from "../Articles/ArticleCard";
+import ErrorPage from "../ErrorPage";
 
 export default class TopicPage extends Component {
   state = {
-    topicArticles: []
+    topicArticles: [],
+    err: null
   };
 
   componentDidMount() {
@@ -15,27 +17,32 @@ export default class TopicPage extends Component {
     const { topic } = this.props;
     api
       .getAllArticles(topic)
-      .then(topicArticles => this.setState({ topicArticles }));
+      .then(topicArticles => this.setState({ topicArticles }))
+      .catch(err => this.setState({ err }));
   };
 
   render() {
     const { topic, loggedUser } = this.props;
-    const { topicArticles } = this.state;
-    return (
-      <React.Fragment>
-        <h3>{topic}</h3>
-        <ul>
-          {topicArticles.map(article => {
-            return (
-              <ArticleCard
-                loggedUser={loggedUser}
-                article={article}
-                key={article.article_id}
-              />
-            );
-          })}
-        </ul>
-      </React.Fragment>
-    );
+    const { topicArticles, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    } else {
+      return (
+        <React.Fragment>
+          <h3>{topic}</h3>
+          <ul>
+            {topicArticles.map(article => {
+              return (
+                <ArticleCard
+                  loggedUser={loggedUser}
+                  article={article}
+                  key={article.article_id}
+                />
+              );
+            })}
+          </ul>
+        </React.Fragment>
+      );
+    }
   }
 }

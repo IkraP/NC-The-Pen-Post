@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import * as api from "../api/apiRequest";
+import ErrorPage from "./ErrorPage";
 
 export default class LoginUser extends Component {
   state = {
     usersData: [],
-    isLoading: true
+    isLoading: true,
+    err: null
   };
   // When page is loaded all the info for users is shown
   componentDidMount() {
@@ -26,7 +28,8 @@ export default class LoginUser extends Component {
       api
         .getUsers(user)
         .then(data => allUserArray.push(data))
-        .then(() => this.setState({ isLoading: false }));
+        .then(() => this.setState({ isLoading: false }))
+        .catch(err => this.setState({ err }));
     });
     this.setState({ usersData: allUserArray });
   };
@@ -39,35 +42,38 @@ export default class LoginUser extends Component {
   };
 
   render() {
-    const { usersData, isLoading } = this.state;
-
-    return (
-      <React.Fragment>
-        <h2>Users:</h2>
-        {isLoading ? (
-          <p>Loading... </p>
-        ) : (
-          <section>
-            {usersData.map(user => {
-              return (
-                <section key={user.name}>
-                  <img
-                    style={{
-                      width: "70px",
-                      height: "100px"
-                    }}
-                    src={user.avatar_url}
-                    alt={user.name}
-                  />
-                  <button value={user.username} onClick={this.handleClick}>
-                    {user.username}
-                  </button>
-                </section>
-              );
-            })}
-          </section>
-        )}
-      </React.Fragment>
-    );
+    const { usersData, isLoading, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    } else {
+      return (
+        <React.Fragment>
+          <h2>Users:</h2>
+          {isLoading ? (
+            <p>Loading... </p>
+          ) : (
+            <section>
+              {usersData.map(user => {
+                return (
+                  <section key={user.name}>
+                    <img
+                      style={{
+                        width: "70px",
+                        height: "100px"
+                      }}
+                      src={user.avatar_url}
+                      alt={user.name}
+                    />
+                    <button value={user.username} onClick={this.handleClick}>
+                      {user.username}
+                    </button>
+                  </section>
+                );
+              })}
+            </section>
+          )}
+        </React.Fragment>
+      );
+    }
   }
 }
