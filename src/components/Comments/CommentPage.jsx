@@ -38,7 +38,6 @@ export default class CommentPage extends Component {
 
   render() {
     const { articleIdComments } = this.state;
-
     const { article_id } = this.props;
 
     return (

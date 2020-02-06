@@ -3,8 +3,9 @@ import * as api from "../api/apiRequest";
 
 export default class LoginUser extends Component {
   state = {
-    selectedUser: "",
-    usersData: []
+    selectedUser: null,
+    usersData: [],
+    isLoading: true
   };
   // When page is loaded all the info for users is shown
   componentDidMount() {
@@ -22,7 +23,10 @@ export default class LoginUser extends Component {
     ];
     let allUserArray = [];
     users.forEach(user => {
-      api.getUsers(user).then(data => allUserArray.push(data));
+      api
+        .getUsers(user)
+        .then(data => allUserArray.push(data))
+        .then(() => this.setState({ isLoading: false }));
     });
     this.setState({ usersData: allUserArray });
   };
@@ -39,23 +43,34 @@ export default class LoginUser extends Component {
   }
 
   render() {
-    const { usersData } = this.state;
+    const { usersData, isLoading } = this.state;
+
     return (
       <React.Fragment>
-        {usersData.map(user => {
-          return (
-            <section key={user.name}>
-              <img
-                style={{ width: "100px", height: "100px" }}
-                src={user.avatar_url}
-                alt={user.name}
-              />
-              <button value={user.username} onClick={this.handleClick}>
-                {user.username}
-              </button>
-            </section>
-          );
-        })}
+        <h2>Users:</h2>
+        {isLoading ? (
+          <p>Loading... </p>
+        ) : (
+          <section>
+            {usersData.map(user => {
+              return (
+                <section key={user.name}>
+                  <img
+                    style={{
+                      width: "70px",
+                      height: "100px"
+                    }}
+                    src={user.avatar_url}
+                    alt={user.name}
+                  />
+                  <button value={user.username} onClick={this.handleClick}>
+                    {user.username}
+                  </button>
+                </section>
+              );
+            })}
+          </section>
+        )}
       </React.Fragment>
     );
   }

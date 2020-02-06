@@ -4,7 +4,8 @@ import CommentPage from "../Comments/CommentPage";
 
 export default class ArticlePage extends Component {
   state = {
-    article: {}
+    article: {},
+    isLoading: true
   };
 
   componentDidMount() {
@@ -15,21 +16,27 @@ export default class ArticlePage extends Component {
     const { article_id } = this.props;
     api
       .getArticleByArticleId(article_id)
-      .then(article => this.setState({ article }));
+      .then(article => this.setState({ article, isLoading: false }));
   };
 
   render() {
-    const { article } = this.state;
+    const { article, isLoading } = this.state;
     const { article_id } = this.props;
 
     return (
-      <div>
-        <h3>Title: {article.title}</h3>
-        <p>Article: {article.body}</p>
-        <p>Author: {article.author}</p>
-        <p>Date: {article.created_at}</p>
-        <CommentPage article_id={article_id} />
-      </div>
+      <main>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <section>
+            <h3>Title: {article.title}</h3>
+            <p>Article: {article.body}</p>
+            <p>Author: {article.author}</p>
+            <p>Date: {article.created_at}</p>
+            <CommentPage article_id={article_id} />
+          </section>
+        )}
+      </main>
     );
   }
 }

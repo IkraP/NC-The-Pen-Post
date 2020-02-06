@@ -4,7 +4,8 @@ import TopicList from "./TopicList";
 
 export default class Topics extends Component {
   state = {
-    topics: []
+    topics: [],
+    isLoading: true
   };
 
   componentDidMount() {
@@ -12,23 +13,27 @@ export default class Topics extends Component {
   }
 
   fetchTopics = () => {
-    getAllTopics().then(topics => this.setState({ topics }));
+    getAllTopics().then(topics => this.setState({ topics, isLoading: false }));
   };
 
   render() {
-    const { topics } = this.state;
+    const { topics, isLoading } = this.state;
     return (
       <React.Fragment>
         <header>
           <h2>Topics</h2>
         </header>
-        <main>
-          <ul style={{ listStyleType: "none" }}>
-            {topics.map(topic => {
-              return <TopicList key={topic.slug} topic={topic} />;
-            })}
-          </ul>
-        </main>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <main>
+            <ul style={{ listStyleType: "none" }}>
+              {topics.map(topic => {
+                return <TopicList key={topic.slug} topic={topic} />;
+              })}
+            </ul>
+          </main>
+        )}
       </React.Fragment>
     );
   }

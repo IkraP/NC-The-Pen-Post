@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import ArticleCard from "../components/Articles/ArticleCard";
+import ArticleCard from "./Articles/ArticleCard";
 import * as api from "../api/apiRequest";
 import Sorting from "./Sorting";
 
-export default class HomePage extends Component {
+export default class Articles extends Component {
   state = {
     allArticles: [],
     isLoading: true
