@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api/apiRequest";
+import ErrorPage from "../components/ErrorPage";
 
 export default class Sorting extends Component {
   state = {

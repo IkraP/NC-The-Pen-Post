@@ -31,15 +31,16 @@ export default class CommentPage extends Component {
     });
   };
 
-  deleteComment = id => {
-    api.deleteCommentsByCommentId(id).catch(err => this.setState({ err }));
-    this.setState(currentState => {
-      return {
-        articleIdComments: currentState.articleIdComments.filter(comment => {
-          return comment.comment_id !== id;
-        })
-      };
-    });
+  deleteComment = comment_id => {
+    api
+      .deleteCommentsByCommentId(comment_id)
+      .then(currentState => {
+        const listComments = currentState.articleIdComments.filter(comment => {
+          return comment_id !== comment.comment_id;
+        });
+        return { articleIdComments: listComments };
+      })
+      .catch(err => this.setState({ err }));
   };
 
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
 import * as api from "../../api/apiRequest";
 import Sorting from "../Sorting";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../ErrorPage";
 
 export default class Articles extends Component {
   state = {
