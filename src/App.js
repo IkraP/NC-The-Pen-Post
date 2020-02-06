@@ -9,7 +9,7 @@ import TopicPage from "./components/Topics/TopicPage";
 import LoginUser from "./components/LoginUser";
 import ArticlePage from "./components/Articles/ArticlePage";
 import Home from "./components/Home";
-import Articles from "./components/Articles";
+import Articles from "./components/Articles/Articles";
 
 export default class App extends React.Component {
   state = {
@@ -22,24 +22,26 @@ export default class App extends React.Component {
 
   render() {
     const { loggedUser } = this.state;
-
     return (
       <React.Fragment>
         <header>
-          <Header loggedUser={loggedUser} />
+          <Header
+            loggedUser={loggedUser}
+            getLoggedInUser={this.getLoggedInUser}
+          />
           <NavBar loggedUser={loggedUser} />
         </header>
         <Router>
           <LoginUser path="/users" getLoggedInUser={this.getLoggedInUser} />
           <Home path="/home" loggedUser={loggedUser} />
-          <Articles path="/articles" />
+          <Articles path="/articles" loggedUser={loggedUser} />
           <ArticlePage path="/articles/:article_id" loggedUser={loggedUser} />
           <ArticlePage
             path="topics/:topic/:article_id"
             loggedUser={loggedUser}
           />
-          <Topics path="/topics" />
-          <TopicPage path="/topics/:topic" />
+          <Topics path="/topics" loggedUser={loggedUser} />
+          <TopicPage path="/topics/:topic" loggedUser={loggedUser} />
         </Router>
       </React.Fragment>
     );

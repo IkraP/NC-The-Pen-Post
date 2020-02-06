@@ -1,9 +1,9 @@
 import React from "react";
-// MOMENT.JS for the date
 import { Link } from "@reach/router";
 import Voting from "../Voting";
+
 export default function ArticleCard(props) {
-  const { article } = props;
+  const { article, loggedUser } = props;
 
   return (
     <article
@@ -23,7 +23,11 @@ export default function ArticleCard(props) {
       </Link>
 
       <p>Author:{article.author}</p>
-      <Voting votes={article.votes} article_id={article.article_id} />
+      <Voting
+        loggedUser={loggedUser}
+        votes={article.votes}
+        article_id={article.article_id}
+      />
       <p>Date: {article.created_at}</p>
       <p>Comments: {article.comment_count}</p>
     </article>

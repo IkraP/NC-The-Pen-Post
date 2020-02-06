@@ -21,6 +21,7 @@ export default class NewComment extends Component {
 
   render() {
     const { comment } = this.state;
+    const { loggedUser } = this.props;
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
@@ -33,7 +34,9 @@ export default class NewComment extends Component {
             onChange={event => this.handleChange(event.target.value, "comment")}
           />
         </label>
-        <button type="submit">submit comment</button>
+        <button disabled={loggedUser === null} type="submit">
+          submit comment
+        </button>
       </form>
     );
   }

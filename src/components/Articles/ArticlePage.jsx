@@ -21,7 +21,7 @@ export default class ArticlePage extends Component {
 
   render() {
     const { article, isLoading } = this.state;
-    const { article_id } = this.props;
+    const { article_id, loggedUser } = this.props;
 
     return (
       <main>
@@ -33,7 +33,7 @@ export default class ArticlePage extends Component {
             <p>Article: {article.body}</p>
             <p>Author: {article.author}</p>
             <p>Date: {article.created_at}</p>
-            <CommentPage article_id={article_id} />
+            <CommentPage loggedUser={loggedUser} article_id={article_id} />
           </section>
         )}
       </main>

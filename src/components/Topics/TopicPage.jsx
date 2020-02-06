@@ -19,14 +19,20 @@ export default class TopicPage extends Component {
   };
 
   render() {
-    const { topic } = this.props;
+    const { topic, loggedUser } = this.props;
     const { topicArticles } = this.state;
     return (
       <React.Fragment>
         <h3>{topic}</h3>
         <ul>
           {topicArticles.map(article => {
-            return <ArticleCard article={article} key={article.article_id} />;
+            return (
+              <ArticleCard
+                loggedUser={loggedUser}
+                article={article}
+                key={article.article_id}
+              />
+            );
           })}
         </ul>
       </React.Fragment>

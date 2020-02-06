@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 import * as api from "../api/apiRequest";
 
 export default class LoginUser extends Component {
   state = {
-    selectedUser: null,
     usersData: [],
     isLoading: true
   };
@@ -33,14 +33,10 @@ export default class LoginUser extends Component {
 
   handleClick = event => {
     const { value } = event.target;
-    this.setState({ selectedUser: value });
-  };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.selectedUser !== prevState.selectedUser) {
-      this.props.getLoggedInUser(this.state.selectedUser);
-    }
-  }
+    this.props.getLoggedInUser(value);
+    navigate("/articles");
+  };
 
   render() {
     const { usersData, isLoading } = this.state;

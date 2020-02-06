@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import ArticleCard from "./Articles/ArticleCard";
-import * as api from "../api/apiRequest";
-import Sorting from "./Sorting";
+import ArticleCard from "./ArticleCard";
+import * as api from "../../api/apiRequest";
+import Sorting from "../Sorting";
 
 export default class Articles extends Component {
   state = {
@@ -27,6 +27,7 @@ export default class Articles extends Component {
 
   render() {
     const { allArticles, isLoading } = this.state;
+    const { loggedUser } = this.props;
     return (
       <main>
         <h1>Articles</h1>
@@ -36,7 +37,13 @@ export default class Articles extends Component {
         ) : (
           <ul>
             {allArticles.map(article => {
-              return <ArticleCard key={article.article_id} article={article} />;
+              return (
+                <ArticleCard
+                  loggedUser={loggedUser}
+                  key={article.article_id}
+                  article={article}
+                />
+              );
             })}
           </ul>
         )}

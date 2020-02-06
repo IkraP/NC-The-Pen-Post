@@ -38,18 +38,25 @@ export default class CommentPage extends Component {
 
   render() {
     const { articleIdComments } = this.state;
-    const { article_id } = this.props;
+    const { article_id, loggedUser } = this.props;
 
     return (
       <React.Fragment>
         <section>
           <NewComment
+            loggedUser={loggedUser}
             article_id={article_id}
             postNewComment={this.postNewComment}
           />
           <ul>
             {articleIdComments.map(comment => {
-              return <CommentCard key={comment.comment_id} comment={comment} />;
+              return (
+                <CommentCard
+                  loggedUser={loggedUser}
+                  key={comment.comment_id}
+                  comment={comment}
+                />
+              );
             })}
           </ul>
         </section>
