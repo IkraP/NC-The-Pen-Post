@@ -30,14 +30,14 @@ export default class Voting extends Component {
         <button
           className="votes-btn"
           onClick={() => this.handleClick(1)}
-          disabled={voteChange > 0 || loggedUser === null}
+          disabled={voteChange > 0 || loggedUser === ""}
         >
           <IoIosArrowUp />
         </button>
         <button
           className="votes-btn"
           onClick={() => this.handleClick(-1)}
-          disabled={voteChange < 0 || loggedUser === null}
+          disabled={voteChange < 0 || loggedUser === ""}
         >
           <IoIosArrowDown />
         </button>

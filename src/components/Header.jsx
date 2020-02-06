@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 
 export default class Header extends Component {
   toggleLogin = event => {
     const { id } = event.target;
     if (id === "logout") {
       this.props.getLoggedInUser("");
+      navigate("/articles");
     }
   };
   render() {

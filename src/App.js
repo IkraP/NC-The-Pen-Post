@@ -13,7 +13,7 @@ import Articles from "./components/Articles/Articles";
 
 export default class App extends React.Component {
   state = {
-    loggedUser: null
+    loggedUser: ""
   };
 
   getLoggedInUser = selectedUser => {

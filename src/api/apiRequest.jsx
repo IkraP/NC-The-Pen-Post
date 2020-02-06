@@ -53,7 +53,6 @@ const postCommentsByArticleId = (article_id, comment) => {
 };
 
 const patchVotesByArticleId = (article_id, inc_votes) => {
-  console.log(article_id, inc_votes);
   return request.patch(`/articles/${article_id}`, { inc_votes });
 };
 

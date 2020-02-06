@@ -34,7 +34,7 @@ export default class NewComment extends Component {
             onChange={event => this.handleChange(event.target.value, "comment")}
           />
         </label>
-        <button disabled={loggedUser === null} type="submit">
+        <button disabled={loggedUser === ""} type="submit">
           submit comment
         </button>
       </form>
