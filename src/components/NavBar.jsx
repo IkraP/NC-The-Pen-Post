@@ -5,7 +5,10 @@ export default function NavBar() {
   return (
     <nav>
       <button>
-        <Link to="/"> Home </Link>
+        <Link to="/home"> Home </Link>
+      </button>
+      <button>
+        <Link to="/a"> Home </Link>
       </button>
       <button>
         <Link to="/users"> Users </Link>
