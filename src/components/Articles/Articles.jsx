@@ -37,7 +37,7 @@ export default class Articles extends Component {
     } else {
       return (
         <main>
-          <h1>Articles</h1>
+          <h1 className="articleCard-title">Articles</h1>
           <Sorting updateArticles={this.updateArticles} />
           {isLoading ? (
             <Loading />

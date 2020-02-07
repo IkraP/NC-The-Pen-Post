@@ -29,7 +29,7 @@ export default class TopicPage extends Component {
     } else {
       return (
         <React.Fragment>
-          <h3>{topic}</h3>
+          <h3 className="topic-title">{topic}</h3>
           <ul>
             {topicArticles.map(article => {
               return (

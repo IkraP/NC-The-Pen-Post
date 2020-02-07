@@ -53,10 +53,10 @@ export default class LoginUser extends Component {
           {isLoading ? (
             <Loading />
           ) : (
-            <section className="LD-content">
+            <section className="LD-container">
               {usersData.map(user => {
                 return (
-                  <section key={user.name}>
+                  <section className="LD-content" key={user.name}>
                     <img
                       className="LD-img"
                       src={user.avatar_url}

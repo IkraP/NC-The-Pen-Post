@@ -29,12 +29,12 @@ export default class Topics extends Component {
       return (
         <React.Fragment>
           <header>
-            <h2>Topics</h2>
+            <h2 className="topic-title">Topics</h2>
           </header>
           {isLoading ? (
             <Loading />
           ) : (
-            <main>
+            <main className="topic-list">
               <ul style={{ listStyleType: "none" }}>
                 {topics.map(topic => {
                   return <TopicList key={topic.slug} topic={topic} />;
