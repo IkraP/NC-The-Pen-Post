@@ -4,10 +4,9 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import Voting from "../Voting";
 
 export default class CommentCard extends Component {
-  handleDelete = event => {
-    const { id } = event.target;
-    console.log(id);
-    this.props.deleteComment(id);
+  handleDelete = () => {
+    const { comment_id } = this.props.comment;
+    this.props.deleteComment(comment_id);
   };
 
   render() {

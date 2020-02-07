@@ -10,10 +10,12 @@ import LoginUser from "./components/LoginUser";
 import ArticlePage from "./components/Articles/ArticlePage";
 import Home from "./components/Home";
 import Articles from "./components/Articles/Articles";
+import ErrorPage from "./components/ErrorPage";
 
 export default class App extends React.Component {
   state = {
-    loggedUser: ""
+    loggedUser: "",
+    err: null
   };
 
   getLoggedInUser = selectedUser => {
@@ -21,7 +23,7 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { loggedUser } = this.state;
+    const { loggedUser, err } = this.state;
     return (
       <React.Fragment>
         <header>
@@ -42,6 +44,7 @@ export default class App extends React.Component {
           />
           <Topics path="/topics" loggedUser={loggedUser} />
           <TopicPage path="/topics/:topic" loggedUser={loggedUser} />
+          <ErrorPage default err={err} />
         </Router>
       </React.Fragment>
     );

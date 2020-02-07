@@ -16,7 +16,6 @@ export default class CommentPage extends Component {
 
   fetchArticleIdComments = () => {
     const { article_id } = this.props;
-
     api
       .getCommentsByArticleId(article_id)
       .then(articleIdComments => this.setState({ articleIdComments }))
@@ -34,13 +33,11 @@ export default class CommentPage extends Component {
   deleteComment = comment_id => {
     api
       .deleteCommentsByCommentId(comment_id)
-      .then(currentState => {
-        const listComments = currentState.articleIdComments.filter(comment => {
-          return comment_id !== comment.comment_id;
-        });
-        return { articleIdComments: listComments };
-      })
       .catch(err => this.setState({ err }));
+    const newCommentPage = this.state.articleIdComments.filter(
+      comment => comment.comment_id !== comment_id
+    );
+    this.setState({ articleIdComments: newCommentPage });
   };
 
   render() {
