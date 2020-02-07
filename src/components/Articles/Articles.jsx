@@ -3,6 +3,7 @@ import ArticleCard from "./ArticleCard";
 import * as api from "../../api/apiRequest";
 import Sorting from "../Sorting";
 import ErrorPage from "../ErrorPage";
+import Loading from "../Loading";
 
 export default class Articles extends Component {
   state = {
@@ -39,7 +40,7 @@ export default class Articles extends Component {
           <h1>Articles</h1>
           <Sorting updateArticles={this.updateArticles} />
           {isLoading ? (
-            <p>..Loading</p>
+            <Loading />
           ) : (
             <ul>
               {allArticles.map(article => {

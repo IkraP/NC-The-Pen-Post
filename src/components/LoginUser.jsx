@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { navigate } from "@reach/router";
 import * as api from "../api/apiRequest";
 import ErrorPage from "./ErrorPage";
+import Loading from "./Loading";
 
 export default class LoginUser extends Component {
   state = {
@@ -48,23 +49,24 @@ export default class LoginUser extends Component {
     } else {
       return (
         <React.Fragment>
-          <h2>Users:</h2>
+          <h2 className="LU-title">Users:</h2>
           {isLoading ? (
-            <p>Loading... </p>
+            <Loading />
           ) : (
-            <section>
+            <section className="LD-content">
               {usersData.map(user => {
                 return (
                   <section key={user.name}>
                     <img
-                      style={{
-                        width: "70px",
-                        height: "100px"
-                      }}
+                      className="LD-img"
                       src={user.avatar_url}
                       alt={user.name}
                     />
-                    <button value={user.username} onClick={this.handleClick}>
+                    <button
+                      className="LD-user"
+                      value={user.username}
+                      onClick={this.handleClick}
+                    >
                       {user.username}
                     </button>
                   </section>

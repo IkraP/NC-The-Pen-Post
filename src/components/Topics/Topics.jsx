@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getAllTopics } from "../../api/apiRequest";
 import TopicList from "./TopicList";
 import ErrorPage from "../ErrorPage";
+import Loading from "../Loading";
 
 export default class Topics extends Component {
   state = {
@@ -31,7 +32,7 @@ export default class Topics extends Component {
             <h2>Topics</h2>
           </header>
           {isLoading ? (
-            <p>Loading...</p>
+            <Loading />
           ) : (
             <main>
               <ul style={{ listStyleType: "none" }}>

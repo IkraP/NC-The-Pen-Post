@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api/apiRequest";
 import CommentPage from "../Comments/CommentPage";
 import ErrorPage from "../ErrorPage";
+import Loading from "../Loading";
 
 export default class ArticlePage extends Component {
   state = {
@@ -31,7 +32,7 @@ export default class ArticlePage extends Component {
       return (
         <main>
           {isLoading ? (
-            <p>Loading...</p>
+            <Loading />
           ) : (
             <section>
               <h3>Title: {article.title}</h3>

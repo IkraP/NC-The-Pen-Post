@@ -70,6 +70,12 @@ const deleteCommentsByCommentId = comment_id => {
   return request.delete(`/comments/${comment_id}`);
 };
 
+const randomArticle = () => {
+  return request.get("/articles").then(response => {
+    return response.data.total_count;
+  });
+};
+
 export {
   getAllArticles,
   getAllTopics,
@@ -79,5 +85,6 @@ export {
   patchVotesByArticleId,
   patchVotesByCommentId,
   getUsers,
-  deleteCommentsByCommentId
+  deleteCommentsByCommentId,
+  randomArticle
 };

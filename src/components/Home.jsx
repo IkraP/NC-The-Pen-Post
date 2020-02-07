@@ -1,5 +1,64 @@
-import React from "react";
+import React, { Component } from "react";
+import Loading from "./Loading";
+import ErrorPage from "./ErrorPage";
+import * as api from "../api/apiRequest";
+import { Link } from "@reach/router";
 
-export default function Home() {
-  return <div>Welcome to The Pen Post</div>;
+export default class Home extends Component {
+  state = {
+    total_count: 0,
+    randomArticle: [],
+    isLoading: true,
+    err: null
+  };
+
+  componentDidMount() {
+    this.fetchRandomArticle();
+  }
+
+  fetchRandomArticle = () => {
+    api
+      .randomArticle()
+      .then(total_count => this.setState({ total_count }))
+      .then(() => {
+        const { total_count } = this.state;
+        const randomArticle = Math.floor(Math.random() * (total_count + 1) + 1);
+        return api.getArticleByArticleId(randomArticle);
+      })
+      .then(randomArticle =>
+        this.setState({ randomArticle, isLoading: false })
+      );
+  };
+
+  render() {
+    const { randomArticle, isLoading, err } = this.state;
+    if (err) {
+      return <ErrorPage err={err} />;
+    } else {
+      return (
+        <React.Fragment>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <section>
+              <header className="H-title">
+                <h3 className="H-title-content">Latest News</h3>
+              </header>
+              <main className="H-random-article">
+                <p className="H-topic">{randomArticle.topic}</p>
+                <Link
+                  to={`/articles/${randomArticle.article_id}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <p>{randomArticle.title}</p>
+                </Link>
+                <p>{randomArticle.author}</p>
+                <p>comments:{randomArticle.comment_count}</p>
+              </main>
+            </section>
+          )}
+        </React.Fragment>
+      );
+    }
+  }
 }

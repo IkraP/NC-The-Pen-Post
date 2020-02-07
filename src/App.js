@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
-
 import Topics from "./components/Topics/Topics";
 import TopicPage from "./components/Topics/TopicPage";
 import LoginUser from "./components/LoginUser";
