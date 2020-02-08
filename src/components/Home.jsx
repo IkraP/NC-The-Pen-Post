@@ -22,15 +22,25 @@ export default class Home extends Component {
       .then(total_count => this.setState({ total_count }))
       .then(() => {
         const { total_count } = this.state;
-        const randomArticle = Math.floor(Math.random() * (total_count + 1) + 1);
-        return api.getArticleByArticleId(randomArticle);
+        const newRandomNumArray = [];
+        for (let i = 0; i <= 5; i++) {
+          newRandomNumArray.push(
+            Math.floor(Math.random() * (total_count + 1) + 1)
+          );
+        }
+        console.log(newRandomNumArray);
+        const promises = newRandomNumArray.map(article =>
+          api.getArticleByArticleId(article)
+        );
+        return Promise.all(promises);
       })
-      .then(randomArticle =>
-        this.setState({ randomArticle, isLoading: false })
-      );
+      .then(randomArticle => {
+        this.setState({ randomArticle, isLoading: false });
+      });
   };
 
   render() {
+    console.log(this.state.randomArticle);
     const { randomArticle, isLoading, err } = this.state;
     if (err) {
       return <ErrorPage err={err} />;
@@ -45,7 +55,15 @@ export default class Home extends Component {
                 <h3 className="H-title-content">Latest News</h3>
               </header>
               <main className="H-random-article">
-                <p className="H-topic">{randomArticle.topic}</p>
+                {randomArticle.map(article => {
+                  return (
+                    <ul>
+                      <li>{article.title}</li>
+                    </ul>
+                  );
+                })}
+
+                {/* <p className="H-topic">{randomArticle.topic}</p>
                 <Link
                   to={`/articles/${randomArticle.article_id}`}
                   style={{ textDecoration: "none", color: "inherit" }}
@@ -53,7 +71,7 @@ export default class Home extends Component {
                   <p>{randomArticle.title}</p>
                 </Link>
                 <p>{randomArticle.author}</p>
-                <p>comments:{randomArticle.comment_count}</p>
+                <p>comments:{randomArticle.comment_count}</p> */}
               </main>
             </section>
           )}

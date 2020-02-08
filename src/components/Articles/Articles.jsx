@@ -18,7 +18,7 @@ export default class Articles extends Component {
 
   fetchAllArticles = () => {
     api
-      .getAllArticles()
+      .getAllArticles({})
       .then(allArticles => this.setState({ allArticles, isLoading: false }))
       .catch(err => this.setState({ err }));
   };

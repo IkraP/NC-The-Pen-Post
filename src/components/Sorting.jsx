@@ -10,9 +10,9 @@ export default class Sorting extends Component {
   };
 
   handleOrderSort = event => {
-    const { value } = event.target;
+    const order = event.target.value;
     api
-      .getAllArticles(null, value)
+      .getAllArticles({ order })
       .then(sortedArticles => {
         this.setState({ order: "" });
         this.props.updateArticles(sortedArticles);
@@ -21,9 +21,9 @@ export default class Sorting extends Component {
   };
 
   handleSortBy = event => {
-    const { value } = event.target;
+    const sort_by = event.target.target;
     api
-      .getAllArticles(null, null, value)
+      .getAllArticles({ sort_by })
       .then(sortedArticles => {
         this.setState({ sort_by: "" });
         this.props.updateArticles(sortedArticles);

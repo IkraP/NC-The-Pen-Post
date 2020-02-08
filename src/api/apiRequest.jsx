@@ -4,13 +4,15 @@ const request = axios.create({
   baseURL: "https://ikra-news-api.herokuapp.com/api"
 });
 
-const getAllArticles = (topic, order, sort_by) => {
+const getAllArticles = ({ topic, order, sort_by, page, limit }) => {
   return request
     .get("/articles", {
       params: {
         topic,
         order,
-        sort_by
+        sort_by,
+        page,
+        limit
       }
     })
     .then(({ data: { articles } }) => {
@@ -25,6 +27,7 @@ const getArticleByArticleId = article_id => {
       return article;
     });
 };
+
 const getAllTopics = () => {
   return axios
     .get("https://ikra-news-api.herokuapp.com/api/topics")

@@ -16,7 +16,7 @@ export default class TopicPage extends Component {
   fetchArticleByTopic = () => {
     const { topic } = this.props;
     api
-      .getAllArticles(topic)
+      .getAllArticles({ topic })
       .then(topicArticles => this.setState({ topicArticles }))
       .catch(err => this.setState({ err }));
   };
