@@ -14,7 +14,7 @@ export default class Header extends Component {
 
     return (
       <header>
-        <Link style={{ textDecoration: "none", color: "inherit" }} to="/home">
+        <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
           <h1 className="Header-title">The Pen Post</h1>
         </Link>
         {/* toggle login and logout */}

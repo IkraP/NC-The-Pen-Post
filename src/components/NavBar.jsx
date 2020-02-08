@@ -6,7 +6,7 @@ export default function NavBar() {
     <nav className="nav-bar">
       {" "}
       <button>
-        <Link style={{ textDecoration: "none", color: "inherit" }} to="/home">
+        <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
           {" "}
           Home{" "}
         </Link>

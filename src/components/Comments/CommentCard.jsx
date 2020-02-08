@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import TimeAgo from "react-timeago";
 import { FaRegTrashAlt } from "react-icons/fa";
 import Voting from "../Voting";
 
-export default class CommentCard extends Component {
-  handleDelete = () => {
+export default function CommentCard(props) {
+  const handleDelete = () => {
     const { comment_id } = this.props.comment;
     this.props.deleteComment(comment_id);
   };
-
-  render() {
-    const { comment, loggedUser } = this.props;
-
-    return (
+  const { comment, loggedUser } = props;
+  return (
+    <div>
       <section
         style={{
           border: "solid 1px red",
@@ -33,9 +31,9 @@ export default class CommentCard extends Component {
           <TimeAgo date={comment.created_at} live={false} />
         </p>
         {loggedUser && (
-          <FaRegTrashAlt id={comment.comment_id} onClick={this.handleDelete} />
+          <FaRegTrashAlt id={comment.comment_id} onClick={handleDelete} />
         )}
       </section>
-    );
-  }
+    </div>
+  );
 }
