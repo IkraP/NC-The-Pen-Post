@@ -5,8 +5,8 @@ import Voting from "../Voting";
 
 export default function CommentCard(props) {
   const handleDelete = () => {
-    const { comment_id } = this.props.comment;
-    this.props.deleteComment(comment_id);
+    const { comment_id } = props.comment;
+    props.deleteComment(comment_id);
   };
   const { comment, loggedUser } = props;
   return (

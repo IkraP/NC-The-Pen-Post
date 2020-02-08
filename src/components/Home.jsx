@@ -28,7 +28,6 @@ export default class Home extends Component {
             Math.floor(Math.random() * (total_count + 1) + 1)
           );
         }
-        console.log(newRandomNumArray);
         const promises = newRandomNumArray.map(article =>
           api.getArticleByArticleId(article)
         );
@@ -40,7 +39,6 @@ export default class Home extends Component {
   };
 
   render() {
-    console.log(this.state.randomArticle);
     const { randomArticle, isLoading, err } = this.state;
     if (err) {
       return <ErrorPage err={err} />;
