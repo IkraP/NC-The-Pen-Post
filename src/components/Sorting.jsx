@@ -9,7 +9,6 @@ export default class Sorting extends Component {
     err: null
   };
 
-  //handling order by asc or desc function
   handleOrderSort = event => {
     const { value } = event.target;
     api
@@ -20,8 +19,6 @@ export default class Sorting extends Component {
       })
       .catch(err => this.setState({ err }));
   };
-
-  //handling sort_by by date, comment, votes function
 
   handleSortBy = event => {
     const { value } = event.target;

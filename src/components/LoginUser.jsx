@@ -10,7 +10,7 @@ export default class LoginUser extends Component {
     isLoading: true,
     err: null
   };
-  // When page is loaded all the info for users is shown
+
   componentDidMount() {
     this.fetchUserProfile();
   }
