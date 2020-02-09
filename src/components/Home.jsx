@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 import * as api from "../api/apiRequest";
-// import { Link } from "@reach/router";
+import LatestNewsArticles from "./LatestNewsArticles";
 
 export default class Home extends Component {
   state = {
@@ -23,6 +23,7 @@ export default class Home extends Component {
       .then(() => {
         const { total_count } = this.state;
         const newRandomNumArray = [];
+
         for (let i = 0; i <= 5; i++) {
           newRandomNumArray.push(Math.floor(Math.random() * total_count + 1));
         }
@@ -54,21 +55,12 @@ export default class Home extends Component {
               <main className="H-random-article">
                 {randomArticle.map(article => {
                   return (
-                    <ul key={article.article_id}>
-                      <li>{article.title}</li>
-                    </ul>
+                    <LatestNewsArticles
+                      key={article.article_id}
+                      article={article}
+                    />
                   );
                 })}
-
-                {/* <p className="H-topic">{randomArticle.topic}</p>
-                <Link
-                  to={`/articles/${randomArticle.article_id}`}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <p>{randomArticle.title}</p>
-                </Link>
-                <p>{randomArticle.author}</p>
-                <p>comments:{randomArticle.comment_count}</p> */}
               </main>
             </section>
           )}
