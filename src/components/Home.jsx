@@ -25,7 +25,11 @@ export default class Home extends Component {
         const newRandomNumArray = [];
 
         for (let i = 0; i <= 5; i++) {
-          newRandomNumArray.push(Math.floor(Math.random() * total_count + 1));
+          const number = Math.floor(Math.random() * total_count + 1);
+          const generateNumber = newRandomNumArray.indexOf(number);
+          if (generateNumber === -1) {
+            newRandomNumArray.push(number);
+          }
         }
         const promises = newRandomNumArray.map(article =>
           api.getArticleByArticleId(article)
