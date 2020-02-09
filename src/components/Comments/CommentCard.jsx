@@ -20,7 +20,7 @@ export default function CommentCard(props) {
         }}
       >
         <p>{comment.body}</p>
-        <p>{comment.author}</p>
+        <p>Author:{comment.author}</p>
 
         <Voting
           loggedUser={loggedUser}
@@ -30,7 +30,7 @@ export default function CommentCard(props) {
         <p>
           <TimeAgo date={comment.created_at} live={false} />
         </p>
-        {loggedUser && (
+        {comment.author === loggedUser && (
           <FaRegTrashAlt id={comment.comment_id} onClick={handleDelete} />
         )}
       </section>

@@ -54,7 +54,7 @@ export default class Home extends Component {
               <main className="H-random-article">
                 {randomArticle.map(article => {
                   return (
-                    <ul>
+                    <ul key={article.article_id}>
                       <li>{article.title}</li>
                     </ul>
                   );

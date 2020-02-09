@@ -32,7 +32,9 @@ export default class LoginUser extends Component {
         .then(() => this.setState({ isLoading: false }))
         .catch(err => this.setState({ err }));
     });
-    this.setState({ usersData: allUserArray });
+    this.setState({
+      usersData: allUserArray
+    });
   };
 
   handleClick = event => {

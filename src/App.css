@@ -1,14 +1,14 @@
-/* Blue: #0A467A
-lightish pink: #EE869F
-dark pink: #DA4371
-ligher pink: #EF9DA1
-peach: #F7C9CE*/
+/* dark grey = #515465
+olive = #857E4A,
+light olive = #B5AE8A
+v light = #D4D2C3
+light grey #A5A3A6*/
 
 @import url("https://fonts.googleapis.com/css?family=Lobster|Oswald&display=swap");
 body,
 html {
   text-align: center;
-  background-color: #f7c9ce;
+  background-color: #d4d2c3;
   overflow-x: hidden;
 }
 

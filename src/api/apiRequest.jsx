@@ -44,10 +44,10 @@ const getCommentsByArticleId = article_id => {
     });
 };
 
-const postCommentsByArticleId = (article_id, comment) => {
+const postCommentsByArticleId = (article_id, username, comment) => {
   return request
     .post(`/articles/${article_id}/comments`, {
-      username: "jessjelly",
+      username,
       body: comment
     })
     .then(({ data: { comment } }) => {

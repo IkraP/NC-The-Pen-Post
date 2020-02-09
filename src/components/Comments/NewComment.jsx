@@ -15,8 +15,9 @@ export default class NewComment extends Component {
     event.preventDefault();
     const { comment } = this.state;
     const { article_id } = this.props;
+    const { loggedUser } = this.props;
     api
-      .postCommentsByArticleId(article_id, comment)
+      .postCommentsByArticleId(article_id, loggedUser, comment)
       .then(newComment => {
         this.setState({ comment: "" });
         this.props.postNewComment(newComment);
