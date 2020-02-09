@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Loading from "./Loading";
 import ErrorPage from "./ErrorPage";
 import * as api from "../api/apiRequest";
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
 
 export default class Home extends Component {
   state = {
@@ -18,15 +18,13 @@ export default class Home extends Component {
 
   fetchRandomArticle = () => {
     api
-      .randomArticle()
+      .articleTotalCount()
       .then(total_count => this.setState({ total_count }))
       .then(() => {
         const { total_count } = this.state;
         const newRandomNumArray = [];
         for (let i = 0; i <= 5; i++) {
-          newRandomNumArray.push(
-            Math.floor(Math.random() * (total_count + 1) + 1)
-          );
+          newRandomNumArray.push(Math.floor(Math.random() * total_count + 1));
         }
         const promises = newRandomNumArray.map(article =>
           api.getArticleByArticleId(article)
@@ -35,7 +33,8 @@ export default class Home extends Component {
       })
       .then(randomArticle => {
         this.setState({ randomArticle, isLoading: false });
-      });
+      })
+      .catch(err => this.setState({ err }));
   };
 
   render() {
