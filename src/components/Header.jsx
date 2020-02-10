@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, navigate } from "@reach/router";
+import NavBar from "./NavBar";
 
 export default class Header extends Component {
   toggleLogin = event => {
@@ -11,33 +12,38 @@ export default class Header extends Component {
   };
   render() {
     const { loggedUser } = this.props;
-
+    const linkStyle = { textDecoration: "none", color: "inherit" };
     return (
-      <header>
-        <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
-          <h1 className="Header-title">The Pen Post</h1>
-        </Link>
-        {/* toggle login and logout */}
-        {!loggedUser ? (
-          <div>
-            <Link to="/users">
+      <header className="Header">
+        <Link style={linkStyle} to="/">
+          <h1 className="Header-title"></h1>
+          The Pen Post
+          <NavBar />
+          {!loggedUser ? (
+            <React.Fragment>
+              <Link to="/users" style={linkStyle}>
+                <button
+                  id="login"
+                  className="Header-btn"
+                  onClick={this.toggleLogin}
+                >
+                  Login
+                </button>
+              </Link>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
               <button
-                id="login"
+                id="logout"
                 className="Header-btn"
                 onClick={this.toggleLogin}
               >
-                Login
+                Logout
               </button>
-            </Link>
-          </div>
-        ) : (
-          <div>
-            <button id="logout" onClick={this.toggleLogin}>
-              Logout
-            </button>
-            <p>{loggedUser}</p>
-          </div>
-        )}
+              <p>{loggedUser}</p>
+            </React.Fragment>
+          )}
+        </Link>
       </header>
     );
   }

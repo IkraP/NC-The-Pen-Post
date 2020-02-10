@@ -39,7 +39,6 @@ export default class LoginUser extends Component {
 
   handleClick = event => {
     const { value } = event.target;
-
     this.props.getLoggedInUser(value);
     navigate("/articles");
   };
@@ -55,17 +54,18 @@ export default class LoginUser extends Component {
           {isLoading ? (
             <Loading />
           ) : (
-            <section className="LD-container">
+            <section className="LU-container">
               {usersData.map(user => {
                 return (
-                  <section className="LD-content" key={user.name}>
+                  <section className="LU-content" key={user.name}>
                     <img
-                      className="LD-img"
+                      className="LU-img"
                       src={user.avatar_url}
                       alt={user.name}
+                      onClick={this.handleClick}
                     />
                     <button
-                      className="LD-user"
+                      className="LU-user"
                       value={user.username}
                       onClick={this.handleClick}
                     >

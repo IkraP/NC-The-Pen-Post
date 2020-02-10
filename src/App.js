@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header";
-import NavBar from "./components/NavBar";
 import { Router } from "@reach/router";
 import Topics from "./components/Topics/Topics";
 import TopicPage from "./components/Topics/TopicPage";
@@ -30,7 +29,6 @@ export default class App extends React.Component {
             loggedUser={loggedUser}
             getLoggedInUser={this.getLoggedInUser}
           />
-          <NavBar loggedUser={loggedUser} />
         </header>
         <Router>
           <LoginUser path="/users" getLoggedInUser={this.getLoggedInUser} />

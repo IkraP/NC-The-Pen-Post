@@ -67,66 +67,69 @@ html {
   color: #515465;
 }
 
+/* Header */
+
+.Header {
+  display: grid;
+}
+
+.Header-title {
+  font-family: "Playfair Display", serif;
+  font-size: 70px;
+  color: #515465;
+  flex: 1 0 auto;
+}
+
+.Header-btn {
+  border: none;
+  width: 100px;
+  font-family: "Oswald", sans-serif;
+  font-size: 15px;
+}
+
 /* Nav-bar */
+
+.nav-bar {
+}
 
 /* LoginUser CSS */
 
 .LU-title {
-  font-family: "Lobster", cursive;
-  color: #0a467a;
+  font-family: "Playfair Display", serif;
+  color: #515465;
   font-size: 30px;
 }
 
-.LD-container {
+.LU-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.LD-content {
+.LU-content {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
-.LD-img {
-  border: solid 1px #da4371;
-  padding: 10px;
-  background-color: #da4371;
+.LU-img {
+  padding-top: 30px;
   border-radius: 30%;
   width: 70px;
   height: 100px;
 }
 
-.LD-user {
+.LU-user {
   border: none;
-  padding: 15px 15px;
   text-align: center;
-  display: block;
-  width: 100px;
-  font-family: "Oswald", sans-serif;
-  color: #da4371;
-  font-size: 15px;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
 }
 
-.Header-title {
-  font-family: "Lobster", cursive;
-  font-size: 100px;
-  color: #0a467a;
-  margin: 10px 10px;
-}
-
-.Header-btn {
-  border: none;
-  padding: 10px 10px;
-  width: 100px;
-  font-family: "Oswald", sans-serif;
-  color: #da4371;
-  font-size: 15px;
-}
-
-button {
+/* button {
   border: none;
   padding: 10px 10px;
   width: 100px;
@@ -147,7 +150,7 @@ button:hover {
   font-family: "Lobster", cursive;
   font-size: 50px;
   color: #0a467a;
-}
+} */
 
 .nav-bar {
   color: #da4371;
