@@ -67,8 +67,8 @@ export default class Articles extends Component {
       return <ErrorPage err={err} />;
     } else {
       return (
-        <main>
-          <h1 className="articleCard-title">Articles</h1>
+        <main className="articles">
+          <h1 className="articles-title">Articles</h1>
           <Sorting updateArticles={this.updateArticles} page={page} />
           {isLoading ? (
             <Loading />
@@ -87,7 +87,7 @@ export default class Articles extends Component {
                 </button>
               )}
 
-              <ul>
+              <ul className="article-wrapper">
                 {allArticles.map(article => {
                   return (
                     <ArticleCard

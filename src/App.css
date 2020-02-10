@@ -3,13 +3,15 @@ olive = #857E4A,
 light olive = #B5AE8A
 v.dark olive = 444732
 v light = #D4D2C3
-light grey #A5A3A6*/
+light grey #A5A3A6
+E6E5E1*/
 
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato|Playfair+Display&display=swap");
 body,
 html {
   text-align: center;
   background-color: #ffffff;
+  box-sizing: border-box;
 }
 
 /* Home Page CSS */
@@ -31,6 +33,7 @@ html {
 
 .l-card {
   width: 300px;
+  background-color: #e6e5e1;
   font-family: "Playfair Display", serif;
   transition: all 0.125s;
   transform: scale(1) translateY(0px);
@@ -50,14 +53,14 @@ html {
 }
 
 .l-card-small-title {
-  font-size: 10px;
-  color: #a5a3a6;
+  font-size: 15px;
+  color: #b5ae8a;
 }
 
 .l-card-title {
   padding: 30px;
   vertical-align: middle;
-  color: #857e4a;
+  color: #444732;
   font-size: 17px;
   height: 70px;
 }
@@ -70,9 +73,12 @@ html {
 /* Header */
 
 .Header {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "header nav";
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas: "head nav"; */
 }
 
 .Header-title {
@@ -81,13 +87,18 @@ html {
   color: #444732;
   margin: auto;
   padding: 30px;
-  grid-area: header;
+  grid-area: head;
+  cursor: pointer;
 }
 
 /* Nav-bar */
 
 .nav-bar {
   grid-area: nav;
+}
+
+.nav-bar button {
+  float: right;
 }
 
 .nav-bar-btn {
@@ -143,4 +154,46 @@ button:focus {
   justify-content: center;
   font-family: "Playfair Display", serif;
   font-size: 14px;
+}
+
+/* Article card  */
+
+.article-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding-left: 15px;
+}
+
+.article-card {
+  border: "none";
+  background-color: #e6e5e1;
+  transition: all 0.125s;
+  transform: scale(1) translateY(0px);
+  display: inline-block;
+  margin-top: calc((100vh - 506px) / 2);
+  margin-right: 10px;
+  margin-left: 10px;
+  top: 50%;
+  height: 300px;
+  width: 25%;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.article-card-topic {
+  float: left;
+  padding: 20px;
+  font-size: 15px;
+  color: #b5ae8a;
+}
+
+.article-card-title {
+  padding-top: 70px;
+  text-align: center;
+  height: 70px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  vertical-align: middle;
 }

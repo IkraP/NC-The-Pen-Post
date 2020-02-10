@@ -24,7 +24,7 @@ export default class Home extends Component {
         const { total_count } = this.state;
         const newRandomNumArray = [];
 
-        for (let i = 0; i <= 5; i++) {
+        for (let i = 0; i < 5; i++) {
           const number = Math.floor(Math.random() * total_count + 1);
           const generateNumber = newRandomNumArray.indexOf(number);
           if (generateNumber === -1) {
