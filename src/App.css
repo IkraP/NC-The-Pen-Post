@@ -6,7 +6,7 @@ v light = #D4D2C3
 light grey #A5A3A6
 E6E5E1*/
 
-@import url("https://fonts.googleapis.com/css?family=Lato|Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Playfair+Display&display=swap");
 body,
 html {
   text-align: center;
@@ -167,6 +167,12 @@ button:focus {
   padding-left: 15px;
 }
 
+.articles-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  color: #515465;
+}
+
 .article-card {
   border: "none";
   background-color: #e6e5e1;
@@ -177,7 +183,7 @@ button:focus {
   margin-right: 10px;
   margin-left: 10px;
   top: 50%;
-  height: 300px;
+  height: 400px;
   width: 25%;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 }
@@ -196,4 +202,46 @@ button:focus {
   overflow-wrap: break-word;
   word-wrap: break-word;
   vertical-align: middle;
+  color: #444732;
+}
+
+.voting-title {
+  font-family: "Playfair Display", serif;
+  color: #515465;
+}
+
+.votes-btn {
+  border: none;
+  color: #444732;
+  background-color: #e6e5e1;
+  font-size: 20px;
+  outline: none;
+}
+
+.votes-btn :active [active] :hover {
+  transform: scale(1) translateY(2px);
+  color: white;
+  background-color: #444732;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
+
+.article-card-comments {
+  font-size: 15px;
+  color: #515465;
+}
+
+.article-page {
+  outline: none;
+  color: #444732;
+}
+
+/* Error page */
+
+.errors {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  color: #444732;
 }

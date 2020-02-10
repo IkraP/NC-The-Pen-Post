@@ -10,7 +10,7 @@ export default function ErrorPage({ err }) {
     ></img>
   );
   return (
-    <div>
+    <div className="errors">
       {img}
       <p>{err ? err.response.status : "404"}</p>
       <p>{err ? err.response.data.msg : "Page not found"}</p>

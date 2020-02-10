@@ -67,13 +67,13 @@ export default class Articles extends Component {
       return <ErrorPage err={err} />;
     } else {
       return (
-        <main className="articles">
+        <main>
           <h1 className="articles-title">Articles</h1>
           <Sorting updateArticles={this.updateArticles} page={page} />
           {isLoading ? (
             <Loading />
           ) : (
-            <div>
+            <div className="article-page">
               {page !== totalPages ? (
                 <button
                   disabled={page === totalPages ? true : false}

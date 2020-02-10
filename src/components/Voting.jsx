@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import * as api from "../api/apiRequest";
 import ErrorPage from "./ErrorPage";
 
@@ -36,20 +36,20 @@ export default class Voting extends Component {
     } else {
       return (
         <section>
-          <p>Votes: {votes + voteChange}</p>
+          <p className="voting-title">Votes: {votes + voteChange}</p>
           <button
             className="votes-btn"
             onClick={() => this.handleClick(1)}
             disabled={voteChange > 0 || loggedUser === ""}
           >
-            <IoIosArrowUp />
+            <FaChevronDown size={25} />
           </button>
           <button
             className="votes-btn"
             onClick={() => this.handleClick(-1)}
             disabled={voteChange < 0 || loggedUser === ""}
           >
-            <IoIosArrowDown />
+            <FaChevronUp size={25} />
           </button>
         </section>
       );
