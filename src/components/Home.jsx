@@ -53,10 +53,10 @@ export default class Home extends Component {
             <Loading />
           ) : (
             <section>
-              <header className="H-title">
-                <h3 className="H-title-content">Latest News</h3>
+              <header>
+                <h3 className="H-title">Latest News</h3>
               </header>
-              <main className="H-random-article">
+              <main className="H-card">
                 {randomArticle.map(article => {
                   return (
                     <LatestNewsArticles

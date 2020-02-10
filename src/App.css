@@ -1,57 +1,73 @@
 /* dark grey = #515465
 olive = #857E4A,
 light olive = #B5AE8A
+v.dark olive = 444732
 v light = #D4D2C3
 light grey #A5A3A6*/
 
-@import url("https://fonts.googleapis.com/css?family=Lobster|Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 body,
 html {
   text-align: center;
-  background-color: #d4d2c3;
-  overflow-x: hidden;
+  background-color: #ffffff;
 }
 
 /* Home Page CSS */
 
 .H-title {
-  width: 100%;
-  margin: 20px 0 0 0;
-  color: #0a467a;
+  font-family: "Playfair Display", serif;
   font-size: 30px;
-  float: left;
-  position: relative;
-  font-family: "Lobster", cursive;
+  color: #515465;
 }
 
-.H-title-content {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  text-align: center;
-  transform: translate(-50%, -50%);
-}
-
-.H-random-article {
+.H-card {
   display: flex;
-  color: #0a467a;
-  font-family: "Oswald", sans-serif;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 400px;
-  margin: 0px auto;
-  border: solid 1px #0a467a;
-  border-radius: 20px;
-}
-
-.H-topic {
-  display: inline;
-  text-align: left;
-  padding-left: 20px;
+  padding-bottom: 200px;
 }
 
 /* Latest news cards */
+
+.l-card {
+  width: 300px;
+  font-family: "Playfair Display", serif;
+  transition: all 0.125s;
+  transform: scale(1) translateY(0px);
+  display: inline-block;
+  height: 300px;
+  margin-top: calc((100vh - 506px) / 2);
+  margin-right: 20px;
+  margin-left: 20px;
+  top: 50%;
+  border: none;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.l-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.l-card-small-title {
+  font-size: 10px;
+  color: #a5a3a6;
+}
+
+.l-card-title {
+  padding: 30px;
+  vertical-align: middle;
+  color: #857e4a;
+  font-size: 17px;
+  height: 70px;
+}
+
+.l-card-comments {
+  font-size: 15px;
+  color: #515465;
+}
+
+/* Nav-bar */
 
 /* LoginUser CSS */
 
