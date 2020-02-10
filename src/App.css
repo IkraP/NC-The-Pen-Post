@@ -71,25 +71,41 @@ html {
 
 .Header {
   display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "header nav";
 }
 
 .Header-title {
   font-family: "Playfair Display", serif;
   font-size: 70px;
-  color: #515465;
-  flex: 1 0 auto;
-}
-
-.Header-btn {
-  border: none;
-  width: 100px;
-  font-family: "Oswald", sans-serif;
-  font-size: 15px;
+  color: #444732;
+  margin: auto;
+  padding: 30px;
+  grid-area: header;
 }
 
 /* Nav-bar */
 
 .nav-bar {
+  grid-area: nav;
+}
+
+.nav-bar-btn {
+  border: none;
+  padding: 5px 5px;
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  text-decoration: none;
+  color: #515465;
+}
+
+.nav-bar-btn:hover {
+  color: #b5ae8a;
+  font-weight: bold;
+}
+
+button:focus {
+  outline: 0;
 }
 
 /* LoginUser CSS */
@@ -127,43 +143,4 @@ html {
   justify-content: center;
   font-family: "Playfair Display", serif;
   font-size: 14px;
-}
-
-/* button {
-  border: none;
-  padding: 10px 10px;
-  width: 100px;
-  font-family: "Oswald", sans-serif;
-  color: #da4371;
-  background-color: #f7c9ce;
-  font-size: 15px;
-  text-decoration: none;
-  color: inherit;
-}
-
-button:hover {
-  background-color: #da4371;
-  color: white;
-}
-
-.articleCard-title {
-  font-family: "Lobster", cursive;
-  font-size: 50px;
-  color: #0a467a;
-} */
-
-.nav-bar {
-  color: #da4371;
-}
-
-.topic-title {
-  font-family: "Lobster", cursive;
-  font-size: 50px;
-  color: #0a467a;
-}
-
-.topic-list {
-  color: inherit;
-  text-decoration: none;
-  font-family: "Oswald", sans-serif;
 }

@@ -33,6 +33,7 @@ export default class App extends React.Component {
         <Router>
           <LoginUser path="/users" getLoggedInUser={this.getLoggedInUser} />
           <Home path="/" loggedUser={loggedUser} />
+          <Home path="/home" loggedUser={loggedUser} />
           <Articles path="/articles" loggedUser={loggedUser} />
           <ArticlePage path="/articles/:article_id" loggedUser={loggedUser} />
           <ArticlePage

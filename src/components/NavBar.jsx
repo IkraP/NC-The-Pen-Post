@@ -1,27 +1,48 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 
-export default function NavBar() {
+const linkStyle = { textDecoration: "none", color: "inherit" };
+const toggleLogin = event => {
+  const { id } = event.target;
+  if (id === "logout") {
+    this.props.getLoggedInUser("");
+    navigate("/home");
+  }
+};
+
+export default function NavBar(props) {
+  const { loggedUser } = props;
   return (
-    <nav className="nav-bar">
-      <button>
-        <Link style={{ textDecoration: "none", color: "inherit" }} to="/">
+    <nav>
+      <button className="nav-bar-btn">
+        <Link style={linkStyle} to="/">
           Home{" "}
         </Link>
       </button>
-      <button>
-        <Link
-          style={{ textDecoration: "none", color: "inherit" }}
-          to="/articles"
-        >
+      <button className="nav-bar-btn">
+        <Link style={linkStyle} to="/articles">
           Articles{" "}
         </Link>
       </button>
-      <button>
-        <Link style={{ textDecoration: "none", color: "inherit" }} to="/topics">
+      <button className="nav-bar-btn">
+        <Link style={linkStyle} to="/topics">
           Topics{" "}
         </Link>
       </button>
+      {!loggedUser ? (
+        <Link to="/users" style={linkStyle}>
+          <button id="login" onClick={toggleLogin}>
+            Login
+          </button>
+        </Link>
+      ) : (
+        <React.Fragment>
+          <button id="logout" onClick={toggleLogin}>
+            Logout
+          </button>
+          <p>{loggedUser}</p>
+        </React.Fragment>
+      )}
     </nav>
   );
 }
