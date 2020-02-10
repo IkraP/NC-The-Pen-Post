@@ -19,9 +19,9 @@ export default function ArticleCard(props) {
         votes={article.votes}
         article_id={article.article_id}
       />
-
-      <Moment format="YYYY/MM/DD"> date={article.created_at}</Moment>
-      <p>Date: {article.created_at}</p>
+      <p>
+        <Moment format="MMMM YYYY">{article.created_at}</Moment>
+      </p>
       <Link to={`${article.article_id}`} style={style}>
         <p className="article-card-comments">
           <FaRegComment size={20} comments={article.comment_count} />{" "}

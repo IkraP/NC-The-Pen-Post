@@ -69,23 +69,24 @@ export default class Articles extends Component {
       return (
         <main>
           <h1 className="articles-title">Articles</h1>
-          <Sorting updateArticles={this.updateArticles} page={page} />
           {isLoading ? (
             <Loading />
           ) : (
-            <div className="article-page">
+            <div>
               {page !== totalPages ? (
                 <button
+                  className="article-page"
                   disabled={page === totalPages ? true : false}
                   onClick={this.changePage}
                 >
                   Page {page}
                 </button>
               ) : (
-                <button onClick={this.handleFirstPage}>
+                <button className="article-page" onClick={this.handleFirstPage}>
                   back to first page
                 </button>
               )}
+              <Sorting updateArticles={this.updateArticles} page={page} />
 
               <ul className="article-wrapper">
                 {allArticles.map(article => {
