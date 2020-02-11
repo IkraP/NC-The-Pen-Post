@@ -34,11 +34,10 @@ export default class ArticlePage extends Component {
           {isLoading ? (
             <Loading />
           ) : (
-            <section>
-              <h3>Title: {article.title}</h3>
-              <p>Article: {article.body}</p>
-              <p>Author: {article.author}</p>
-              <p>Date: {article.created_at}</p>
+            <section className="indi-articles">
+              <h3 className="article-page-title">{article.title}</h3>
+              <p className="article-page-body">Article: {article.body}</p>
+              <p className="article-page-author">Author: {article.author}</p>
               <CommentPage loggedUser={loggedUser} article_id={article_id} />
             </section>
           )}
