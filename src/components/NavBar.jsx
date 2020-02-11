@@ -39,9 +39,9 @@ export default function NavBar(props) {
         ) : (
           <React.Fragment>
             <button id="logout" onClick={toggleLogin}>
-              Logout {loggedUser}
+              Logout
             </button>
-            <p>{loggedUser}</p>
+            <p className="nav-user-login">{loggedUser}</p>
           </React.Fragment>
         )}
       </ul>
