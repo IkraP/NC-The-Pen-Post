@@ -13,7 +13,7 @@ export default function NavBar(props) {
     }
   };
   return (
-    <nav>
+    <nav className="nav-bar">
       <ul>
         <button className="nav-bar-btn">
           <Link style={linkStyle} to="/">

@@ -72,21 +72,28 @@ export default class Articles extends Component {
           {isLoading ? (
             <Loading />
           ) : (
-            <div>
-              {page !== totalPages ? (
-                <button
-                  className="article-page"
-                  disabled={page === totalPages ? true : false}
-                  onClick={this.changePage}
-                >
-                  Page {page}
-                </button>
-              ) : (
-                <button className="article-page" onClick={this.handleFirstPage}>
-                  back to first page
-                </button>
-              )}
+            <div className="articles-page-sorting">
               <Sorting updateArticles={this.updateArticles} page={page} />
+              <React.Fragment>
+                <div>
+                  {page !== totalPages ? (
+                    <button
+                      className="article-pages"
+                      disabled={page === totalPages ? true : false}
+                      onClick={this.changePage}
+                    >
+                      Page {page}
+                    </button>
+                  ) : (
+                    <button
+                      className="article-pages"
+                      onClick={this.handleFirstPage}
+                    >
+                      back to first page
+                    </button>
+                  )}
+                </div>
+              </React.Fragment>
 
               <ul className="article-wrapper">
                 {allArticles.map(article => {

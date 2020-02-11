@@ -76,6 +76,7 @@ html {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  height: 200px;
 }
 
 .Header-title {
@@ -84,8 +85,9 @@ html {
   color: #444732;
   margin: auto;
   padding: 30px;
-  grid-area: head;
   cursor: pointer;
+  text-align: center;
+  justify-content: center;
 }
 
 .Header-logo {
@@ -95,11 +97,9 @@ html {
 
 /* Nav-bar */
 
-.nav-bar {
-  grid-area: nav;
-}
-
-.nav-bar button {
+.nav-bar ul {
+  box-sizing: border-box;
+  margin-right: -100px;
   float: right;
 }
 
@@ -108,8 +108,10 @@ html {
   padding: 5px 5px;
   font-family: "Playfair Display", serif;
   font-size: 17px;
+  display: inline-block;
   text-decoration: none;
   color: #515465;
+  margin: 0 10px;
 }
 
 .nav-bar-btn:hover {
@@ -238,7 +240,11 @@ button[disabled] {
   color: #515465;
 }
 
-.article-page {
+.articles-page-sorting {
+  text-align: center;
+}
+
+.article-pages {
   outline: none;
   border: none;
   color: #515465;
@@ -247,8 +253,44 @@ button[disabled] {
   margin: 20px;
 }
 
-.article-page:hover {
+.articles-date {
+  font-family: "Playfair Display", serif;
+  color: #444732;
+}
+
+.article-pages:hover {
   color: #b5ae8a;
+}
+
+.articles-sorting {
+  font-size: 15px;
+  font-family: "Playfair Display", serif;
+  color: #444732;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 300px) {
+  select .articles-sorting {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+select {
+  color: #515465;
+  font-size: 12px;
+  width: 100px;
+  text-align: center;
+  border: none;
+  outline: none;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+select:hover {
+  background-color: #b5ae8a;
+  color: white;
 }
 
 /* Error page */

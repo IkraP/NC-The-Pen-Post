@@ -19,7 +19,7 @@ export default function ArticleCard(props) {
         votes={article.votes}
         article_id={article.article_id}
       />
-      <p>
+      <p className="articles-date">
         <Moment format="MMMM YYYY">{article.created_at}</Moment>
       </p>
       <Link to={`${article.article_id}`} style={style}>

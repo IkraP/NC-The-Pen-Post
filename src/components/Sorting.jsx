@@ -38,18 +38,18 @@ export default class Sorting extends Component {
     } else {
       return (
         <React.Fragment>
-          <form>
-            <label>Sort articles by: </label>
+          <form className="articles-sorting">
+            <label>Order articles by: </label>
             <select onChange={this.handleOrderSort}>
               <option value="desc">desc</option>
               <option value="asc">asc</option>
             </select>
           </form>
-          <form>
+          <form className="articles-sorting">
             <label>Sort articles by: </label>
             <select onChange={this.handleSortBy}>
               <option value="date">date</option>
-              <option value="comment_count">number of comments</option>
+              <option value="comment_count">comments</option>
               <option value="votes">votes</option>
             </select>
           </form>

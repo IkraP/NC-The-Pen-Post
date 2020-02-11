@@ -17,11 +17,7 @@ export default function Header(props) {
           ></img>
         </h1>
       </Link>
-      <NavBar
-        className="nav-bar"
-        getLoggedInUser={getLoggedInUser}
-        loggedUser={loggedUser}
-      />
+      <NavBar getLoggedInUser={getLoggedInUser} loggedUser={loggedUser} />
     </header>
   );
 }

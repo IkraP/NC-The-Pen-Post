@@ -42,14 +42,14 @@ export default class Voting extends Component {
             onClick={() => this.handleClick(1)}
             disabled={voteChange > 0 || loggedUser === ""}
           >
-            <FaChevronDown size={25} />
+            <FaChevronUp size={25} />
           </button>
           <button
             className="votes-btn"
             onClick={() => this.handleClick(-1)}
             disabled={voteChange < 0 || loggedUser === ""}
           >
-            <FaChevronUp size={25} />
+            <FaChevronDown size={25} />
           </button>
         </section>
       );
