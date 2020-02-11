@@ -14,18 +14,18 @@ export default function NavBar(props) {
   };
   return (
     <nav className="nav-bar">
-      <ul>
-        <button className="nav-bar-btn">
+      <ul className="nav-bar-ul">
+        <button>
           <Link style={linkStyle} to="/">
             Home{" "}
           </Link>
         </button>
-        <button className="nav-bar-btn">
+        <button>
           <Link style={linkStyle} to="/articles">
             Articles{" "}
           </Link>
         </button>
-        <button className="nav-bar-btn">
+        <button>
           <Link style={linkStyle} to="/topics">
             Topics{" "}
           </Link>
@@ -39,7 +39,7 @@ export default function NavBar(props) {
         ) : (
           <React.Fragment>
             <button id="logout" onClick={toggleLogin}>
-              Logout
+              Logout {loggedUser}
             </button>
             <p>{loggedUser}</p>
           </React.Fragment>

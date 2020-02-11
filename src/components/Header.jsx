@@ -7,15 +7,13 @@ export default function Header(props) {
   const { loggedUser, getLoggedInUser } = props;
   return (
     <header className="Header">
+      <img
+        className="Header-logo"
+        src="https://i.ibb.co/Y3GpvzK/Asset-4-2x-100.jpg"
+        alt="The Pen Post logo"
+      ></img>{" "}
       <Link style={linkStyle} to="/">
-        <h1 className="Header-title">
-          The Pen Post{" "}
-          <img
-            className="Header-logo"
-            src="https://i.ibb.co/Y3GpvzK/Asset-4-2x-100.jpg"
-            alt="The Pen Post logo"
-          ></img>
-        </h1>
+        <h1 className="Header-title">The Pen Post</h1>
       </Link>
       <NavBar getLoggedInUser={getLoggedInUser} loggedUser={loggedUser} />
     </header>
