@@ -5,6 +5,7 @@ const linkStyle = { textDecoration: "none", color: "inherit" };
 
 export default function NavBar(props) {
   const { loggedUser } = props;
+  console.log(loggedUser);
   const toggleLogin = event => {
     const { id } = event.target;
     if (id === "logout") {
@@ -37,12 +38,10 @@ export default function NavBar(props) {
             </button>
           </Link>
         ) : (
-          <React.Fragment>
-            <button id="logout" onClick={toggleLogin}>
-              Logout
-            </button>
+          <button id="logout" onClick={toggleLogin}>
+            Logout
             <p className="nav-user-login">{loggedUser}</p>
-          </React.Fragment>
+          </button>
         )}
       </ul>
     </nav>

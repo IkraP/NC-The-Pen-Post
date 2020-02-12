@@ -7,6 +7,7 @@ light grey #A5A3A6
 E6E5E1*/
 
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap");
+
 body,
 html {
   text-align: center;
@@ -112,9 +113,11 @@ html {
     justify-content: center;
     font-size: 30px;
   }
+
   .Header {
     flex-wrap: wrap;
   }
+
   button {
     background-color: transparent;
   }
@@ -129,21 +132,22 @@ html {
     justify-content: center;
     font-size: 30px;
   }
+
   .Header {
     flex-wrap: wrap;
   }
+
   button {
     background-color: transparent;
   }
 }
 
-button {
-  background-color: transparent;
-}
+
 
 .nav-bar-ul button {
   border: none;
-  font-family: "Playfair Display", serif;
+  font-family: "Playfair Display",
+    serif;
   font-size: 17px;
   transition: all 0.3s ease 0s;
   text-decoration: none;
@@ -162,7 +166,7 @@ button:focus {
 .nav-user-login {
   color: #444732;
   font-size: 16px;
-  font-family: "Playfair Display", serif;
+
 }
 
 /* LoginUser CSS */

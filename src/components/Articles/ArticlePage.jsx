@@ -26,6 +26,7 @@ export default class ArticlePage extends Component {
   render() {
     const { article, isLoading, err } = this.state;
     const { article_id, loggedUser } = this.props;
+    console.log(loggedUser);
     if (err) {
       return <ErrorPage err={err} />;
     } else {
