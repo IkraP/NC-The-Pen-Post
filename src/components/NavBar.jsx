@@ -5,7 +5,6 @@ const linkStyle = { textDecoration: "none", color: "inherit" };
 
 export default function NavBar(props) {
   const { loggedUser } = props;
-  console.log(loggedUser);
   const toggleLogin = event => {
     const { id } = event.target;
     if (id === "logout") {
@@ -14,35 +13,36 @@ export default function NavBar(props) {
     }
   };
   return (
-    <nav className="nav-bar">
+    <nav>
       <ul className="nav-bar-ul">
         <button>
           <Link style={linkStyle} to="/">
-            Home{" "}
+            Home
           </Link>
         </button>
         <button>
           <Link style={linkStyle} to="/articles">
-            Articles{" "}
+            Articles
           </Link>
         </button>
         <button>
           <Link style={linkStyle} to="/topics">
-            Topics{" "}
+            Topics
           </Link>
         </button>
         {!loggedUser ? (
-          <Link to="/users" style={linkStyle}>
-            <button id="login" onClick={toggleLogin}>
+          <button id="login" onClick={toggleLogin}>
+            <Link to="/users" style={linkStyle}>
+              {" "}
               Login
-            </button>
-          </Link>
+            </Link>
+          </button>
         ) : (
           <button id="logout" onClick={toggleLogin}>
             Logout
-            <p className="nav-user-login">{loggedUser}</p>
           </button>
         )}
+        <p className="nav-user-login">{loggedUser}</p>
       </ul>
     </nav>
   );

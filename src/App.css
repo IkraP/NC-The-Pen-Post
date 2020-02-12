@@ -76,70 +76,29 @@ html {
 /* Header */
 
 .Header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 10%;
-}
-
-.Header-title {
-  font-family: "Playfair Display", serif;
-  font-size: 70px;
-  color: #444732;
-  vertical-align: middle;
-  cursor: pointer;
-  display: inline-block;
-  margin-right: 200px;
+  display: grid;
+  grid-template-rows: 1fr
 }
 
 .Header-logo {
   width: 70px;
   height: 100px;
-  cursor: pointer;
+  padding-top: 20px;
 }
 
-/* Nav-bar */
+.Header-title {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  color: #444732;
 
-.nav-bar {
-  display: inline-block;
 }
+
 
 @media only screen and (max-width: 600px) {
-  .Header-title {
-    display: flex;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    justify-content: center;
-    font-size: 30px;
-  }
-
-  .Header {
-    flex-wrap: wrap;
-  }
-
   button {
     background-color: transparent;
   }
-}
 
-@media only screen and (max-width: 1230px) {
-  .Header-title {
-    display: flex;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    justify-content: center;
-    font-size: 30px;
-  }
-
-  .Header {
-    flex-wrap: wrap;
-  }
-
-  button {
-    background-color: transparent;
-  }
 }
 
 
@@ -152,6 +111,9 @@ html {
   transition: all 0.3s ease 0s;
   text-decoration: none;
   color: #515465;
+  padding: 1px 20px;
+  align-items: center;
+  display: inline-block;
 }
 
 .nav-bar-ul button:hover {
@@ -167,6 +129,7 @@ button:focus {
   color: #444732;
   font-size: 16px;
 
+
 }
 
 /* LoginUser CSS */
@@ -181,6 +144,15 @@ button:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  padding-bottom: 200px;
+}
+
+.LU-container button {
+  border: none;
+  text-align: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
 }
 
 .LU-content {
