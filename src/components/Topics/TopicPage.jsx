@@ -21,10 +21,6 @@ export default class TopicPage extends Component {
       .catch(err => this.setState({ err }));
   };
 
-  updateArticlesByTopic = sortedArticles => {
-    console.log(sortedArticles);
-  };
-
   render() {
     const { topic, loggedUser } = this.props;
     const { topicArticles, err } = this.state;

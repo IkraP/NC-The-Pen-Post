@@ -22,6 +22,7 @@ html {
 .H-title {
   font-family: "Playfair Display", serif;
   font-size: 30px;
+  margin: 10px;
   color: #515465;
 }
 
@@ -89,39 +90,44 @@ html {
 .Header-title {
   font-family: "Playfair Display", serif;
   font-size: 40px;
+  margin: 15px;
   color: #444732;
 
 }
 
 
-@media only screen and (max-width: 600px) {
-  button {
-    background-color: transparent;
-  }
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-bar-ul {
+  width: 100%;
+  padding-inline-start: 0;
 
 }
 
-
-
-.nav-bar-ul button {
+.nav-bar-ul li {
   border: none;
   font-family: "Playfair Display",
     serif;
   font-size: 17px;
-  transition: all 0.3s ease 0s;
+  padding: 10px 10px;
   text-decoration: none;
+  list-style-type: none;
   color: #515465;
-  padding: 1px 20px;
-  align-items: center;
-  display: inline-block;
+  display: inline-block
 }
 
-.nav-bar-ul button:hover {
+.nav-bar-ul li:hover {
   color: #b5ae8a;
   font-weight: bold;
 }
 
-button:focus {
+li:focus {
   outline: 0;
 }
 
@@ -137,6 +143,7 @@ button:focus {
 .LU-title {
   font-family: "Playfair Display", serif;
   color: #515465;
+  margin: 15px;
   font-size: 30px;
 }
 
@@ -185,6 +192,10 @@ button:focus {
     justify-content: center;
     align-items: center;
   }
+
+  button {
+    background-color: transparent;
+  }
 }
 
 /* Article card  */
@@ -194,13 +205,14 @@ button:focus {
   flex-wrap: wrap;
   justify-content: space-evenly;
   text-align: center;
-  padding-bottom: 200px;
-  padding-right: 20px;
+  padding-inline-start: 0;
+
 }
 
 .articles-title {
   font-family: "Playfair Display", serif;
   font-size: 30px;
+  margin: 15px;
   color: #515465;
 }
 
@@ -214,7 +226,6 @@ button:focus {
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
-  top: 50%;
   height: 350px;
   width: 300px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
@@ -359,4 +370,18 @@ select:hover {
     width: 100%;
     text-align: justify;
   }
+}
+
+/* Topic */
+
+.topic-title {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  margin: 15px;
+  color: #515465;
+}
+
+
+ul {
+  padding-inline-start: 0;
 }

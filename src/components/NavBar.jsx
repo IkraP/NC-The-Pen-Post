@@ -13,34 +13,34 @@ export default function NavBar(props) {
     }
   };
   return (
-    <nav>
+    <nav className="nav-bar">
       <ul className="nav-bar-ul">
-        <button>
+        <li>
           <Link style={linkStyle} to="/">
             Home
           </Link>
-        </button>
-        <button>
+        </li>
+        <li>
           <Link style={linkStyle} to="/articles">
             Articles
           </Link>
-        </button>
-        <button>
+        </li>
+        <li>
           <Link style={linkStyle} to="/topics">
             Topics
           </Link>
-        </button>
+        </li>
         {!loggedUser ? (
-          <button id="login" onClick={toggleLogin}>
+          <li id="login" onClick={toggleLogin}>
             <Link to="/users" style={linkStyle}>
               {" "}
               Login
             </Link>
-          </button>
+          </li>
         ) : (
-          <button id="logout" onClick={toggleLogin}>
+          <li id="logout" onClick={toggleLogin}>
             Logout
-          </button>
+          </li>
         )}
         <p className="nav-user-login">{loggedUser}</p>
       </ul>
