@@ -38,9 +38,7 @@ export default class LoginUser extends Component {
   };
 
   handleClick = event => {
-    console.log(event.currentTarget.value);
     const { value } = event.currentTarget;
-    console.log(value);
     this.props.getLoggedInUser(value);
     navigate("/articles");
   };
