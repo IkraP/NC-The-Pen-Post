@@ -5,7 +5,7 @@ export default function TopicList(props) {
   const { topic } = props;
 
   return (
-    <div>
+    <div className="topic-list-items">
       <Link to={`${topic.slug}`}>
         <option>{topic.slug}</option>
       </Link>
