@@ -452,6 +452,11 @@ select:hover {
 
   .comment-textarea {
     width: 75%;
+
+  }
+
+  .comment-textarea:focus {
+    display: block
   }
 }
 
