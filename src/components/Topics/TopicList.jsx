@@ -5,7 +5,7 @@ export default function TopicList(props) {
   const { topic } = props;
 
   return (
-    <li className="topic-list-items">
+    <div className="topic-list-items">
       <Link
         style={{
           textDecoration: "none",
@@ -14,8 +14,8 @@ export default function TopicList(props) {
         }}
         to={`${topic.slug}`}
       >
-        {topic.slug}
+        <li>{topic.slug}</li>
       </Link>
-    </li>
+    </div>
   );
 }

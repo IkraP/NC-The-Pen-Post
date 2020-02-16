@@ -32,20 +32,22 @@ export default class NewComment extends Component {
       return <ErrorPage err={err} />;
     } else {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Comment:
-            <textarea
-              required
-              name="comment"
-              value={comment}
-              placeholder="Enter your comment ..."
-              onChange={event =>
-                this.handleChange(event.target.value, "comment")
-              }
-            />
-          </label>
-          <button disabled={loggedUser === ""} type="submit">
+        <form className="new-comment-form" onSubmit={this.handleSubmit}>
+          <p className="comment-title">Comments</p>
+          <label className="comment-label">Add a new comment: </label>
+          <textarea
+            className="comment-textarea"
+            required
+            name="comment"
+            value={comment}
+            placeholder="Enter your comment ..."
+            onChange={event => this.handleChange(event.target.value, "comment")}
+          />
+          <button
+            className="comment-btn"
+            disabled={loggedUser === ""}
+            type="submit"
+          >
             submit comment
           </button>
         </form>

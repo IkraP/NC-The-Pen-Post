@@ -257,7 +257,7 @@ li:focus {
 .votes-btn {
   border: none;
   color: #444732;
-  background-color: #e6e5e1;
+  background-color: transparent;
   font-size: 20px;
   outline: none;
 }
@@ -270,11 +270,20 @@ li:focus {
 
 button[disabled] {
   opacity: 0.5;
+  outline: none;
+  pointer-events: none;
 
 }
 
 button {
+  background-color: transparent;
+}
+
+button:hover {
+  color: #b5ae8a;
+  font-weight: bold;
   outline: none;
+
 }
 
 .article-card-comments {
@@ -346,11 +355,11 @@ select:hover {
 /* Article-page */
 
 .indi-articles {
-  padding: 10px 100px;
   font-family: "Playfair Display", serif;
   margin: 0 auto;
-  padding-top: -100px;
+  padding: 0 100px
 }
+
 
 .article-page-title {
   font-size: 25px;
@@ -362,20 +371,109 @@ select:hover {
   width: 100%;
   text-align: center;
   display: inline-block;
+
 }
 
 .article-page-author {
   font-size: 15px;
-  color: #b5ae8a;
+  color: #515465;
   font-weight: bold;
 }
 
+
+
+.article-page-author:hover {
+  color: #444732;
+}
+
+.new-comment-form {
+  justify-content: center;
+  text-align: center;
+
+}
+
+.comment-label {
+  color: #515465;
+
+}
+
+.comment-title {
+  font-size: 20px;
+  color: #444732;
+  display: block;
+}
+
+.comment-textarea {
+  width: 50%;
+  height: 50px;
+  display: block;
+  justify-content: center;
+  resize: none;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.comment-btn {
+  font-size: 15px;
+}
+
+
+.comment-page-wrapper {
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6e5e1;
+  transition: all 0.125s;
+  transform: scale(1) translateY(0px);
+  margin-top: calc((100vh - 506px) / 2);
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  justify-content: center;
+  text-align: center
+}
+
+.all-comments {
+  border-bottom: 1px solid #444732;
+}
+
+
+.all-comment-body {
+  color: #515465;
+  display: inline-block;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.all-comment-author {
+  color: #444732;
+  font-size: 14px;
+}
+
+
+
 @media only screen and (max-width: 600px) {
+  .indi-articles {
+    padding: 0 20px;
+
+  }
+
   .article-page-body {
-    width: 100%;
     text-align: justify;
   }
+
+  .comment-textarea {
+    width: 75%;
+
+  }
 }
+
+
 
 /* Topic */
 
@@ -394,28 +492,36 @@ ul {
 
 .topic-list {
   display: flex;
+  text-decoration: none;
+  list-style-type: none;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   padding-inline-start: 0;
+  padding-bottom: 100px;
 }
 
-
-.topic-list-items {
-  display: inline-block;
-}
 
 .topic-list-items {
   border: "none";
   background-color: #e6e5e1;
   transition: all 0.125s;
   transform: scale(1) translateY(0px);
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: calc((100vh - 506px) / 2);
   margin-right: 20px;
   margin-left: 20px;
   margin-bottom: 20px;
-  height: 350px;
-  width: 300px;
+  height: 200px;
+  width: 250px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.topic-list-items li {
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  color: #444732;
 }

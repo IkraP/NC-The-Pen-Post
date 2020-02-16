@@ -36,8 +36,9 @@ export default class ArticlePage extends Component {
           ) : (
             <section className="indi-articles">
               <h3 className="article-page-title">{article.title}</h3>
-              <p className="article-page-body">Article: {article.body}</p>
               <p className="article-page-author">Author: {article.author}</p>
+              <p className="article-page-body">{article.body}</p>
+
               <CommentPage loggedUser={loggedUser} article_id={article_id} />
             </section>
           )}
