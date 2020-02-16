@@ -207,7 +207,6 @@ li:focus {
   text-align: center;
   padding-inline-start: 0;
 
-
 }
 
 .articles-title {
@@ -393,4 +392,30 @@ ul {
 }
 
 
-.topic-list {}
+.topic-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding-inline-start: 0;
+}
+
+
+.topic-list-items {
+  display: inline-block;
+}
+
+.topic-list-items {
+  border: "none";
+  background-color: #e6e5e1;
+  transition: all 0.125s;
+  transform: scale(1) translateY(0px);
+  display: inline-block;
+  margin-top: calc((100vh - 506px) / 2);
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  height: 350px;
+  width: 300px;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+}

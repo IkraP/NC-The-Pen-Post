@@ -34,13 +34,11 @@ export default class Topics extends Component {
           {isLoading ? (
             <Loading />
           ) : (
-            <main className="topic-list">
-              <ul style={{ listStyleType: "none" }}>
-                {topics.map(topic => {
-                  return <TopicList key={topic.slug} topic={topic} />;
-                })}
-              </ul>
-            </main>
+            <ul className="topic-list">
+              {topics.map(topic => {
+                return <TopicList key={topic.slug} topic={topic} />;
+              })}
+            </ul>
           )}
         </React.Fragment>
       );
