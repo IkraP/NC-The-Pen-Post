@@ -423,6 +423,7 @@ select:hover {
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
   justify-content: center;
   text-align: center;
+  position: relative
 }
 
 .all-comments {
@@ -454,11 +455,9 @@ select:hover {
     width: 75%;
 
   }
-
-  .comment-page-wrapper {
-    z-index: -1;
-  }
 }
+
+
 
 /* Topic */
 
