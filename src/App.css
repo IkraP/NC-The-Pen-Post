@@ -525,3 +525,27 @@ ul {
   font-family: "Playfair Display", serif;
   color: #444732;
 }
+
+
+/* footer */
+
+
+
+
+.footer {
+  padding: 50px 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center
+}
+
+.footer-icons {
+  display: inline-block;
+}
+
+.icon {
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+

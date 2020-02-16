@@ -9,6 +9,7 @@ import ArticlePage from "./components/Articles/ArticlePage";
 import Home from "./components/Home";
 import Articles from "./components/Articles/Articles";
 import ErrorPage from "./components/ErrorPage";
+import Footer from "./components/Footer";
 
 export default class App extends React.Component {
   state = {
@@ -44,6 +45,7 @@ export default class App extends React.Component {
           <TopicPage path="/topics/:topic" loggedUser={loggedUser} />
           <ErrorPage default err={err} />
         </Router>
+        <Footer />
       </React.Fragment>
     );
   }
