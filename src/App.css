@@ -455,8 +455,8 @@ select:hover {
 
   }
 
-  .comment-textarea:focus {
-    display: block
+  .comment-page-wrapper {
+    z-index: -1;
   }
 }
 
