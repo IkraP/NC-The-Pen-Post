@@ -54,6 +54,8 @@ export default class CommentPage extends Component {
               article_id={article_id}
               postNewComment={this.postNewComment}
             />
+          </section>
+          <section>
             <ul className="comment-page-wrapper">
               {articleIdComments.map(comment => {
                 return (
