@@ -380,7 +380,6 @@ select:hover {
 .new-comment-form {
   justify-content: center;
   text-align: center;
-
 }
 
 .comment-label {
@@ -403,7 +402,6 @@ select:hover {
   margin-right: auto;
   border: none;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-
 }
 
 .comment-btn {
@@ -413,6 +411,8 @@ select:hover {
 .comment-page-wrapper {
   padding-bottom: 50px;
   display: flex;
+  flex-basis: 0;
+  position: relative;
   flex-direction: column;
   background-color: #e6e5e1;
   transition: all 0.125s;
@@ -447,10 +447,7 @@ select:hover {
   .indi-articles {
     padding: 0 20px;
   }
-
 }
-
-
 
 /* Topic */
 
