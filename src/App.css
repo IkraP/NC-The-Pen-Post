@@ -410,17 +410,11 @@ select:hover {
 
 .comment-page-wrapper {
   padding-bottom: 50px;
-  display: flex;
-  flex-basis: 0;
-  position: relative;
-  flex-direction: column;
   background-color: #e6e5e1;
   transition: all 0.125s;
   transform: scale(1) translateY(0px);
-  margin-top: calc((100vh - 506px) / 2);
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-top: 150px;
+  position: relative;
   font-family: "Playfair Display", serif;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
   justify-content: center;
@@ -446,6 +440,7 @@ select:hover {
 @media only screen and (max-width: 600px) {
   .indi-articles {
     padding: 0 20px;
+    margin-top: 30px;
   }
 }
 
@@ -518,4 +513,5 @@ ul {
   margin-right: 20px;
   margin-left: 20px;
   cursor: pointer;
+  position: relative;
 }
