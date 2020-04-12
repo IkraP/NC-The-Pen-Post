@@ -12,6 +12,7 @@ export default class Articles extends Component {
     err: null,
     page: 1,
     total_count: 0,
+    sort_by: "date",
   };
 
   componentDidMount() {
@@ -32,10 +33,8 @@ export default class Articles extends Component {
     );
   };
 
-  updateArticles = (sortedArticles) => {
-    this.setState({
-      allArticles: sortedArticles,
-    });
+  updateArticles = (sort_by) => {
+    this.setState({ sort_by });
   };
 
   changePage = () => {
@@ -45,10 +44,10 @@ export default class Articles extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    const { page } = this.state;
-    if (prevState.page !== page) {
+    const { page, sort_by } = this.state;
+    if (prevState.page !== page || prevState.sort_by !== sort_by) {
       api
-        .getAllArticles({ page })
+        .getAllArticles({ sort_by, page })
         .then((allArticles) => this.setState({ allArticles }))
         .catch((err) => this.setState({ err }));
     }
@@ -69,7 +68,7 @@ export default class Articles extends Component {
             <Loading />
           ) : (
             <div className="articles-page-sorting">
-              <Sorting page={page} />
+              <Sorting updateArticles={this.updateArticles} page={page} />
               <React.Fragment>
                 <div>
                   {page !== totalPages ? (
