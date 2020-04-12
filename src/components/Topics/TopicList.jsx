@@ -5,16 +5,16 @@ export default function TopicList(props) {
   const { topic } = props;
 
   return (
-    <div className="topic-list-items">
+    <div>
       <Link
         style={{
           textDecoration: "none",
           color: "inherit",
-          listStyleType: "none"
+          listStyleType: "none",
         }}
         to={`${topic.slug}`}
       >
-        <li>{topic.slug}</li>
+        <li className="topic-list-items">{topic.slug}</li>
       </Link>
     </div>
   );

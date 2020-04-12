@@ -476,17 +476,14 @@ ul {
   height: 200px;
   width: 250px;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  color: #444732;
 }
 
 .topic-list-items:hover {
   cursor: pointer;
   transform: scale(1.05);
-}
-
-.topic-list-items li {
-  font-size: 20px;
-  font-family: "Playfair Display", serif;
-  color: #444732;
 }
 
 /* footer */
