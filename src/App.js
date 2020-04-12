@@ -14,15 +14,16 @@ import Footer from "./components/Footer";
 export default class App extends React.Component {
   state = {
     loggedUser: "",
-    err: null
+    err: null,
   };
 
-  getLoggedInUser = selectedUser => {
+  getLoggedInUser = (selectedUser) => {
     this.setState({ loggedUser: selectedUser });
   };
 
   render() {
     const { loggedUser, err } = this.state;
+    console.log(loggedUser);
     return (
       <React.Fragment>
         <header>
