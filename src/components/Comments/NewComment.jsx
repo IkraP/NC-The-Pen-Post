@@ -5,24 +5,24 @@ import ErrorPage from "../ErrorPage";
 export default class NewComment extends Component {
   state = {
     comment: "",
-    err: null
+    err: null,
   };
   handleChange = (text, key) => {
     this.setState({ [key]: text });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const { comment } = this.state;
     const { article_id } = this.props;
     const { loggedUser } = this.props;
     api
       .postCommentsByArticleId(article_id, loggedUser, comment)
-      .then(newComment => {
+      .then((newComment) => {
         this.setState({ comment: "" });
         this.props.postNewComment(newComment);
       })
-      .catch(err => this.setState({ err }));
+      .catch((err) => this.setState({ err }));
   };
 
   render() {
@@ -41,7 +41,9 @@ export default class NewComment extends Component {
             name="comment"
             value={comment}
             placeholder="Enter your comment ..."
-            onChange={event => this.handleChange(event.target.value, "comment")}
+            onChange={(event) =>
+              this.handleChange(event.target.value, "comment")
+            }
           />
           <button
             className="comment-btn"
