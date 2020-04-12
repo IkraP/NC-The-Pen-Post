@@ -1,10 +1,11 @@
-/* dark grey = #515465
+/* 
+dark grey = #515465
 olive = #857E4A,
 light olive = #B5AE8A
 v.dark olive = 444732
 v light = #D4D2C3
 light grey #A5A3A6
-E6E5E1*/
+*/
 
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap");
 body,
@@ -380,19 +381,24 @@ select:hover {
 }
 
 .comment-textarea {
-  width: 50%;
+  width: 75%;
   height: 50px;
   display: block;
   justify-content: center;
   resize: none;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
   border: none;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
 .comment-btn {
   font-size: 15px;
+  margin-top: 25px;
+  font-family: "Playfair Display", serif;
 }
 
 .comment-page-wrapper {
@@ -400,7 +406,7 @@ select:hover {
   background-color: #e6e5e1;
   transition: all 0.125s;
   transform: scale(1) translateY(0px);
-  margin-top: 150px;
+  margin-top: 100px;
   position: relative;
   font-family: "Playfair Display", serif;
   box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.2);
