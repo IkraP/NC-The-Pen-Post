@@ -8,7 +8,7 @@ export default class LoginUser extends Component {
   state = {
     usersData: [],
     isLoading: true,
-    err: null
+    err: null,
   };
 
   componentDidMount() {
@@ -22,22 +22,22 @@ export default class LoginUser extends Component {
       "happyamy2016",
       "cooljmessy",
       "weegembump",
-      "jessjelly"
+      "jessjelly",
     ];
     let allUserArray = [];
-    users.forEach(user => {
+    users.forEach((user) => {
       api
         .getUsers(user)
-        .then(data => allUserArray.push(data))
+        .then((data) => allUserArray.push(data))
         .then(() => this.setState({ isLoading: false }))
-        .catch(err => this.setState({ err }));
+        .catch((err) => this.setState({ err }));
     });
     this.setState({
-      usersData: allUserArray
+      usersData: allUserArray,
     });
   };
 
-  handleClick = event => {
+  handleClick = (event) => {
     const { value } = event.currentTarget;
     this.props.getLoggedInUser(value);
     navigate("/articles");
@@ -56,19 +56,21 @@ export default class LoginUser extends Component {
             <Loading />
           ) : (
             <section className="LU-container">
-              {usersData.map(user => {
+              {usersData.map((user) => {
                 return (
-                  <section className="LU-content" key={user.name}>
-                    <button value={user.username} onClick={this.handleClick}>
-                      <img
-                        className="LU-img"
-                        src={user.avatar_url}
-                        alt={user.name}
-                        onClick={this.handleClick}
-                      />
-                    </button>
-                    <button>{user.username}</button>
-                  </section>
+                  <button
+                    value={user.username}
+                    key={user.name}
+                    onClick={this.handleClick}
+                  >
+                    <img
+                      className="LU-img"
+                      src={user.avatar_url}
+                      alt={user.name}
+                      onClick={this.handleClick}
+                    />
+                    <p>{user.username}</p>
+                  </button>
                 );
               })}
             </section>
