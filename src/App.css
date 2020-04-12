@@ -7,7 +7,6 @@ light grey #A5A3A6
 E6E5E1*/
 
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display|Roboto&display=swap");
-
 body,
 html {
   text-align: center;
@@ -144,7 +143,7 @@ li:focus {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-bottom: 200px;
+  padding-bottom: 50px;
 }
 
 .LU-container button {
@@ -155,11 +154,8 @@ li:focus {
   font-size: 14px;
 }
 
-.LU-content {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  text-align: center;
-  justify-content: center;
+.LU-container button:hover {
+  cursor: pointer;
 }
 
 .LU-img {
@@ -167,14 +163,6 @@ li:focus {
   border-radius: 30%;
   width: 70px;
   height: 100px;
-}
-
-.LU-user {
-  border: none;
-  text-align: center;
-  justify-content: center;
-  font-family: "Playfair Display", serif;
-  font-size: 14px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -185,7 +173,6 @@ li:focus {
     justify-content: center;
     align-items: center;
   }
-
   button {
     background-color: transparent;
   }
