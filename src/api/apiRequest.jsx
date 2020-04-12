@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const request = axios.create({
-  baseURL: "https://ikra-news-api.herokuapp.com/api"
+  baseURL: "https://ikra-news-api.herokuapp.com/api",
 });
 
 const getAllArticles = ({ topic, order, sort_by, page, limit }) => {
@@ -12,15 +12,15 @@ const getAllArticles = ({ topic, order, sort_by, page, limit }) => {
         order,
         sort_by,
         page,
-        limit
-      }
+        limit,
+      },
     })
     .then(({ data: { articles } }) => {
       return articles;
     });
 };
 
-const getArticleByArticleId = article_id => {
+const getArticleByArticleId = (article_id) => {
   return request
     .get(`/articles/${article_id}`)
     .then(({ data: { article } }) => {
@@ -36,7 +36,7 @@ const getAllTopics = () => {
     });
 };
 
-const getCommentsByArticleId = article_id => {
+const getCommentsByArticleId = (article_id) => {
   return request
     .get(`/articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
@@ -48,7 +48,7 @@ const postCommentsByArticleId = (article_id, username, comment) => {
   return request
     .post(`/articles/${article_id}/comments`, {
       username,
-      body: comment
+      body: comment,
     })
     .then(({ data: { comment } }) => {
       return comment;
@@ -63,18 +63,18 @@ const patchVotesByCommentId = (comment_id, inc_votes) => {
   return request.patch(`/comments/${comment_id}`, { inc_votes });
 };
 
-const getUsers = selectedUser => {
+const getUsers = (selectedUser) => {
   return request.get(`/users/${selectedUser}`).then(({ data: { user } }) => {
     return user;
   });
 };
 
-const deleteCommentsByCommentId = comment_id => {
+const deleteCommentsByCommentId = (comment_id) => {
   return request.delete(`/comments/${comment_id}`);
 };
 
 const articleTotalCount = () => {
-  return request.get("/articles").then(response => {
+  return request.get("/articles").then((response) => {
     return response.data.total_count;
   });
 };
@@ -89,5 +89,5 @@ export {
   patchVotesByCommentId,
   getUsers,
   deleteCommentsByCommentId,
-  articleTotalCount
+  articleTotalCount,
 };

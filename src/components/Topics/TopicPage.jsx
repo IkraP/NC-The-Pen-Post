@@ -6,7 +6,7 @@ import ErrorPage from "../ErrorPage";
 export default class TopicPage extends Component {
   state = {
     topicArticles: [],
-    err: null
+    err: null,
   };
 
   componentDidMount() {
@@ -17,13 +17,14 @@ export default class TopicPage extends Component {
     const { topic } = this.props;
     api
       .getAllArticles({ topic })
-      .then(topicArticles => this.setState({ topicArticles }))
-      .catch(err => this.setState({ err }));
+      .then((topicArticles) => this.setState({ topicArticles }))
+      .catch((err) => this.setState({ err }));
   };
 
   render() {
     const { topic, loggedUser } = this.props;
     const { topicArticles, err } = this.state;
+    console.log(topicArticles);
     if (err) {
       return <ErrorPage err={err} />;
     } else {
@@ -31,7 +32,7 @@ export default class TopicPage extends Component {
         <React.Fragment>
           <h3 className="topic-title">{topic}</h3>
           <ul>
-            {topicArticles.map(article => {
+            {topicArticles.map((article) => {
               return (
                 <ArticleCard
                   loggedUser={loggedUser}

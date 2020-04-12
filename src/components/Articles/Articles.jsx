@@ -11,7 +11,7 @@ export default class Articles extends Component {
     isLoading: true,
     err: null,
     page: 1,
-    total_count: 0
+    total_count: 0,
   };
 
   componentDidMount() {
@@ -21,40 +21,36 @@ export default class Articles extends Component {
   fetchAllArticles = () => {
     const getAllArticles = api
       .getAllArticles({})
-      .then(allArticles => this.setState({ allArticles, isLoading: false }));
+      .then((allArticles) => this.setState({ allArticles, isLoading: false }));
 
     const totalCount = api
       .articleTotalCount()
-      .then(total_count => this.setState({ total_count }));
+      .then((total_count) => this.setState({ total_count }));
 
-    Promise.all([getAllArticles, totalCount]).catch(err =>
+    Promise.all([getAllArticles, totalCount]).catch((err) =>
       this.setState({ err })
     );
   };
 
-  updateArticles = sortedArticles => {
+  updateArticles = (sortedArticles) => {
     this.setState({
-      allArticles: sortedArticles
+      allArticles: sortedArticles,
     });
   };
 
   changePage = () => {
-    this.setState(currentState => {
+    this.setState((currentState) => {
       return { page: currentState.page + 1 };
     });
   };
-  handleFirstPage = () => {
-    this.setState(currentState => {
-      return { page: 1 };
-    });
-  };
+
   componentDidUpdate = (prevProps, prevState) => {
     const { page } = this.state;
     if (prevState.page !== page) {
       api
         .getAllArticles({ page })
-        .then(allArticles => this.setState({ allArticles }))
-        .catch(err => this.setState({ err }));
+        .then((allArticles) => this.setState({ allArticles }))
+        .catch((err) => this.setState({ err }));
     }
   };
 
@@ -73,7 +69,7 @@ export default class Articles extends Component {
             <Loading />
           ) : (
             <div className="articles-page-sorting">
-              <Sorting updateArticles={this.updateArticles} page={page} />
+              <Sorting page={page} />
               <React.Fragment>
                 <div>
                   {page !== totalPages ? (
@@ -87,7 +83,7 @@ export default class Articles extends Component {
                   ) : (
                     <button
                       className="article-pages"
-                      onClick={this.handleFirstPage}
+                      onClick={() => this.setState({ page: 1 })}
                     >
                       back to first page
                     </button>
@@ -96,7 +92,7 @@ export default class Articles extends Component {
               </React.Fragment>
 
               <ul className="article-wrapper">
-                {allArticles.map(article => {
+                {allArticles.map((article) => {
                   return (
                     <ArticleCard
                       loggedUser={loggedUser}
