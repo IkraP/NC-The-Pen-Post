@@ -13,16 +13,21 @@ export default class Sorting extends Component {
 
   render() {
     const { err } = this.state;
+
     if (err) {
       return <ErrorPage err={err} />;
     } else {
       return (
         <React.Fragment>
           <form className="articles-sorting">
-            <label>Sort articles by: </label>
+            <label>Sort by: </label>
             <select onChange={this.handleSortBy}>
               <option value="date">date</option>
-              <option value="comment_count">comments</option>
+              {!this.props.article_id ? (
+                <option value="comment_count">comments</option>
+              ) : (
+                ""
+              )}
               <option value="votes">votes</option>
             </select>
           </form>
