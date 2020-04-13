@@ -9,15 +9,17 @@ export default function ArticleCard(props) {
   const style = { textDecoration: "none", color: "inherit" };
 
   return (
-    <Link to={`${article.article_id}`} style={style}>
-      <article className="article-card">
+    <article className="article-card">
+      <Link to={`${article.article_id}`} style={style}>
         <p className="article-card-topic">{article.topic} </p>
         <h3 className="article-card-title">{article.title}</h3>
-        <Voting
-          loggedUser={loggedUser}
-          votes={article.votes}
-          article_id={article.article_id}
-        />
+      </Link>
+      <Voting
+        loggedUser={loggedUser}
+        votes={article.votes}
+        article_id={article.article_id}
+      />
+      <Link to={`${article.article_id}`} style={style}>
         <p className="articles-date">
           <Moment format="MMMM YYYY">{article.created_at}</Moment>
         </p>
@@ -25,7 +27,7 @@ export default function ArticleCard(props) {
           <FaRegComment size={20} comments={article.comment_count} />{" "}
           {article.comment_count} comments
         </p>{" "}
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 }
