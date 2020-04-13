@@ -20,6 +20,18 @@ const getAllArticles = ({ topic, order, sort_by, page, limit }) => {
     });
 };
 
+const getCommentsByArticleId = ({ article_id, page }) => {
+  return request
+    .get(`/articles/${article_id}/comments`, {
+      params: {
+        page,
+      },
+    })
+    .then(({ data: { comments } }) => {
+      return comments;
+    });
+};
+
 const getArticleByArticleId = (article_id) => {
   return request
     .get(`/articles/${article_id}`)
@@ -33,14 +45,6 @@ const getAllTopics = () => {
     .get("https://ikra-news-api.herokuapp.com/api/topics")
     .then(({ data: { topics } }) => {
       return topics;
-    });
-};
-
-const getCommentsByArticleId = (article_id) => {
-  return request
-    .get(`/articles/${article_id}/comments`)
-    .then(({ data: { comments } }) => {
-      return comments;
     });
 };
 
