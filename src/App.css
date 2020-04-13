@@ -505,3 +505,12 @@ ul {
   cursor: pointer;
   position: relative;
 }
+
+.topic-pages {
+  outline: none;
+  border: none;
+  color: #515465;
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  margin: 20px;
+}
