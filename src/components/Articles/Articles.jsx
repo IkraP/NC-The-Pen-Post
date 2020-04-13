@@ -22,7 +22,8 @@ export default class Articles extends Component {
   fetchAllArticles = () => {
     const getAllArticles = api
       .getAllArticles({})
-      .then((allArticles) => this.setState({ allArticles, isLoading: false }));
+      .then((allArticles) => this.setState({ allArticles, isLoading: false }))
+      .catch((err) => this.setState({ err }));
 
     const totalCount = api
       .articleTotalCount()
@@ -68,7 +69,7 @@ export default class Articles extends Component {
             <Loading />
           ) : (
             <div className="articles-page-sorting">
-              <Sorting updateArticles={this.updateArticles} page={page} />
+              <Sorting updateArticles={this.updateArticles} />
               <React.Fragment>
                 <div>
                   {page !== totalPages ? (
