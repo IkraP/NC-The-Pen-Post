@@ -1,82 +1,55 @@
 # The Pen Post
 
-The Pen Post is a social news aggregation, web content rating, and discussion website. Similar to Reddit!
-
-![Recordit GIF](http://g.recordit.co/6qCROYoYRQ.gif)
+The Pen Post is a social news aggregation, web content rating, and discussion website. Think similar to Reddit!
 
 The Pen Post has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API, if user is logged in. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
-## Links:
+![Recordit GIF](http://g.recordit.co/8ruijZz4sE.gif)
 
-Deployed site: https://the-pen-post.herokuapp.com/home
+## Links to project:
 
-Back-end repository: https://github.com/IkraP/NC-news-api
+This front-end project is built using React.js and hosted on Heroku:
 
-Back-end Heroku hosted version: https://ikra-news-api.herokuapp.com/api
+https://the-pen-post.herokuapp.com/home
 
-## Available Scripts
+The back-end is a RESTful API that is designed to host news articles. This relational database stores articles, comments, topics and users. Hosted on Heroku.
 
-In the project directory, you can run:
+https://github.com/IkraP/NC-news-api
 
-### `npm start`
+https://ikra-news-api.herokuapp.com/api
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Getting started
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+### Installation:
 
-### `npm test`
+1. Clone this repository
 
-Launches the test runner in the interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/IkraP/NC-The-Pen-Post.git
+```
 
-### `npm run build`
+2. `cd` into the repository
 
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+cd NC-The-Pen-Post
+```
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+3. Install all dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+4. Start the application to run on your default browser
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built with:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [React](https://reactjs.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Author
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- **Ikra Pervaiz** - [Github](https://github.com/ikraP)
