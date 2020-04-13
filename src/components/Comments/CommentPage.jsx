@@ -105,6 +105,7 @@ export default class CommentPage extends Component {
                   <button
                     className="comment-pages"
                     onClick={() => this.setState({ page: 1 })}
+                    disabled={totalPages ? true : false}
                   >
                     Page {page}
                   </button>
