@@ -2,7 +2,7 @@
 
 The Pen Post is a social news aggregation, web content rating, and discussion website. Similar to Reddit!
 
-<center>![Recordit GIF](http://g.recordit.co/6qCROYoYRQ.gif)</center>
+![Recordit GIF](http://g.recordit.co/6qCROYoYRQ.gif)
 
 The Pen Post has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API, if user is logged in. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
