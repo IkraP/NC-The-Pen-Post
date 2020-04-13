@@ -3,6 +3,7 @@ import * as api from "../../api/apiRequest";
 import ArticleCard from "../Articles/ArticleCard";
 import ErrorPage from "../ErrorPage";
 import Sorting from "../Sorting";
+import Loading from "../Loading";
 
 export default class TopicPage extends Component {
   state = {
@@ -24,7 +25,6 @@ export default class TopicPage extends Component {
     api
       .getAllArticles({ topic, page })
       .then((topicArticles) => {
-        console.log(topicArticles);
         this.setState({ topicArticles, isLoading: false });
       })
       .catch((err) => this.setState({ err }));
@@ -53,42 +53,48 @@ export default class TopicPage extends Component {
 
   render() {
     const { topic, loggedUser } = this.props;
-    const { topicArticles, err, page } = this.state;
+    const { topicArticles, err, page, isLoading } = this.state;
     const totalPages = topicArticles.length < 10;
     if (err) {
       return <ErrorPage err={err} />;
     } else {
       return (
-        <React.Fragment>
-          <h3 className="topic-title">{topic}</h3>
-          <Sorting updateArticles={this.updateArticles} />
-          <div>
-            {!totalPages ? (
-              <button className="topic-pages" onClick={this.changePage}>
-                Page {page}
-              </button>
-            ) : (
-              <button
-                className="topic-pages"
-                onClick={() => this.setState({ page: 1 })}
-              >
-                Page {page}
-              </button>
-            )}
-          </div>
+        <main>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <React.Fragment>
+              <h3 className="topic-title">{topic}</h3>
+              <Sorting updateArticles={this.updateArticles} />
+              <div>
+                {!totalPages ? (
+                  <button className="topic-pages" onClick={this.changePage}>
+                    Page {page}
+                  </button>
+                ) : (
+                  <button
+                    className="topic-pages"
+                    onClick={() => this.setState({ page: 1 })}
+                  >
+                    Page {page}
+                  </button>
+                )}
+              </div>
 
-          <ul>
-            {topicArticles.map((article) => {
-              return (
-                <ArticleCard
-                  loggedUser={loggedUser}
-                  article={article}
-                  key={article.article_id}
-                />
-              );
-            })}
-          </ul>
-        </React.Fragment>
+              <ul>
+                {topicArticles.map((article) => {
+                  return (
+                    <ArticleCard
+                      loggedUser={loggedUser}
+                      article={article}
+                      key={article.article_id}
+                    />
+                  );
+                })}
+              </ul>
+            </React.Fragment>
+          )}
+        </main>
       );
     }
   }
