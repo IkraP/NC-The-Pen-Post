@@ -20,11 +20,12 @@ const getAllArticles = ({ topic, order, sort_by, page, limit }) => {
     });
 };
 
-const getCommentsByArticleId = ({ article_id, page }) => {
+const getCommentsByArticleId = ({ article_id, page, sort_by }) => {
   return request
     .get(`/articles/${article_id}/comments`, {
       params: {
         page,
+        sort_by,
       },
     })
     .then(({ data: { comments } }) => {
