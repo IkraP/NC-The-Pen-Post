@@ -19,7 +19,8 @@ export default class TopicPage extends Component {
 
   fetchArticleByTopic = () => {
     const { topic } = this.props;
-    const page = this.state;
+    const { page } = this.state;
+
     api
       .getAllArticles({ topic, page })
       .then((topicArticles) => {
@@ -54,7 +55,6 @@ export default class TopicPage extends Component {
     const { topic, loggedUser } = this.props;
     const { topicArticles, err, page } = this.state;
     const totalPages = topicArticles.length < 10;
-
     if (err) {
       return <ErrorPage err={err} />;
     } else {
