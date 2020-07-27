@@ -14,7 +14,7 @@ https://the-pen-post.herokuapp.com/home
 
 The back-end is a RESTful API that is designed to host news articles. This relational database stores articles, comments, topics and users. Hosted on Heroku.
 
-https://github.com/IkraP/NC-news-api
+https://github.com/IkraP/NC-The-Pen-Post-API
 
 https://ikra-news-api.herokuapp.com/api
 
