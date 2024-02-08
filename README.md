@@ -52,4 +52,4 @@ npm start
 
 ## Author
 
-- **Ikra Pervaiz** - [Github](https://github.com/ikraP)
+- **Ikra** - [Github](https://github.com/ikraP)
